@@ -1,0 +1,154 @@
+/* ==========================================================================
+   AMPLIACIÓ DE QUÍMICA - Full d'estils personalitzat
+   1r de Batxillerat | ccarrascosa-aimerigues
+   ========================================================================== */
+
+/* Suavitzat de desplaçament i tipografia */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #1e293b;
+}
+
+/* Fórmules matemàtiques KaTeX responsive */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0 !important;
+}
+
+.katex {
+  font-size: 1.05em;
+}
+
+/* Animacions suaus */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pestanyes d'unitats i sub-seccions */
+.unit-tab.active {
+  background-color: #0284c7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.subsection-btn.active {
+  background-color: #ffffff !important;
+  color: #0369a1 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.act-filter-btn.active {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Ocultació de scrollbars per menús horitzontals nets */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Targetes de laboratori i activitats */
+.activity-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.activity-card:hover {
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   ESTILS D'IMPRESSIÓ PER A GUIÓ DE PRÀCTIQUES I RESUM
+   Permet als professors i estudiants imprimir en PDF directament amb Ctrl+P
+   ========================================================================== */
+@media print {
+  header,
+  footer,
+  nav,
+  #calculatorModal,
+  #upcomingModal,
+  .print\:hidden,
+  .unit-tab,
+  .subsection-btn,
+  .act-filter-btn,
+  button {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  .subcontent-pane {
+    display: block !important;
+  }
+
+  /* Mostrar totes les solucions i continguts desplegables en imprimir */
+  #sol-reforc-1,
+  #sol-reforc-2,
+  #sol-reforc-3,
+  #sol-ampliacio-1,
+  #sol-ampliacio-2 {
+    display: block !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 10px !important;
+    margin-top: 8px !important;
+    background-color: #f8fafc !important;
+  }
+
+  .printable-lab {
+    page-break-before: always;
+    border: 1px solid #000000 !important;
+    box-shadow: none !important;
+  }
+
+  .printable-lab:first-of-type {
+    page-break-before: auto;
+  }
+
+  article {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+}
