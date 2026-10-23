@@ -120,7 +120,8 @@
       }
       body { background-color: #ffffff !important; color: #000000 !important; font-size: 11pt; }
       .subcontent-pane { display: block !important; }
-      #sol-reforc-1, #sol-reforc-2, #sol-reforc-3, #sol-ampliacio-1, #sol-ampliacio-2 {
+      #sol-reforc-1, #sol-reforc-2, #sol-reforc-3, #sol-reforc-4, #sol-reforc-5, #sol-reforc-6,
+      #sol-ampliacio-1, #sol-ampliacio-2, #sol-ampliacio-3, #sol-ampliacio-4, #sol-ampliacio-5 {
         display: block !important;
         border: 1px solid #cbd5e1 !important;
         padding: 10px !important;
@@ -150,13 +151,13 @@
               AMPLIACIÓ DE QUÍMICA
               <span class="text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30">1r Batxillerat</span>
             </h1>
-            <p class="text-xs text-slate-300 hidden sm:block">Portal de recursos didàctics, activitats interactives i laboratoris</p>
+            <p class="text-xs text-slate-300 hidden sm:block">Currículum de Física i Química (McGraw-Hill) &bull; Recursos i laboratoris</p>
           </div>
         </div>
 
         <!-- Botons auxiliars capçalera -->
         <div class="flex items-center space-x-3">
-          <button onclick="openCalculatorModal()" class="inline-flex items-center gap-2 text-xs font-medium bg-sky-800/60 hover:bg-sky-700/80 text-sky-100 px-3 py-2 rounded-lg border border-sky-600/40 transition">
+          <button onclick="openCalculatorModal()" class="inline-flex items-center gap-2 text-xs font-medium bg-sky-800/60 hover:bg-sky-700/80 text-sky-100 px-3 py-2 rounded-lg border border-sky-600/40 transition shadow-sm">
             <i class="fa-solid fa-calculator text-sky-400"></i>
             <span class="hidden sm:inline">Calculadora de Dissolucions</span>
             <span class="sm:hidden">Calculadora</span>
@@ -223,10 +224,10 @@
         <!-- Pestanyes internes de la unitat -->
         <div class="flex items-center space-x-1 sm:space-x-2 bg-slate-100 p-1 rounded-xl">
           <button onclick="switchSubSection('teoria')" id="subtab-teoria" class="subsection-btn active px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition bg-white text-sky-700 shadow-sm">
-            <i class="fa-solid fa-book-open mr-1.5 text-sky-500"></i>Resum de Teoria
+            <i class="fa-solid fa-book-open mr-1.5 text-sky-500"></i>Resum de Teoria (McGraw-Hill)
           </button>
           <button onclick="switchSubSection('activitats')" id="subtab-activitats" class="subsection-btn px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
-            <i class="fa-solid fa-pen-to-square mr-1.5 text-amber-500"></i>Activitats
+            <i class="fa-solid fa-pen-to-square mr-1.5 text-amber-500"></i>Activitats (11 problemes)
           </button>
           <button onclick="switchSubSection('laboratori')" id="subtab-laboratori" class="subsection-btn px-3 sm:px-4 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-600 hover:text-slate-900 hover:bg-slate-200/60">
             <i class="fa-solid fa-microscope mr-1.5 text-teal-600"></i>Audiovisual i Pràctiques
@@ -249,19 +250,21 @@
   <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     <!-- ================================================================= -->
-    <!-- SECCIÓ 1: RESUM DE TEORIA                                         -->
+    <!-- SECCIÓ 1: RESUM DE TEORIA (ADAPTAT A MCGRAW-HILL 1R BATXILLERAT)   -->
     <!-- ================================================================= -->
     <div id="section-teoria" class="subcontent-pane space-y-12 animate-fade-in" style="display: block;">
 
       <!-- Hero Banner de la Unitat -->
       <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-sky-800/40">
         <div class="relative z-10 max-w-3xl">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-400/20 text-sky-300 border border-sky-400/30 mb-3">
-            <i class="fa-solid fa-atom"></i> Fonaments i Càlculs Químics
-          </span>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-400/20 text-sky-300 border border-sky-400/30">
+              <i class="fa-solid fa-book-bookmark"></i> Fonaments McGraw-Hill &bull; 1r de Batxillerat
+            </span>
+          </div>
           <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-white mb-3">Unitat 1: Dissolucions</h2>
           <p class="text-sm sm:text-base text-sky-100/90 leading-relaxed">
-            Una comprensió profunda de les mescles homogènies, els mètodes quantitatius per expressar la concentració, el comportament dels sistemes col·loidals i les fascinants propietats col·ligatives que regeixen des de la fisiologia cel·lular fins a la indústria química.
+            Teoria curricular completa segons el programa de <strong>Física i Química de 1r de Batxillerat (Editorial McGraw-Hill)</strong>. Des de l'estudi microscòpic i termodinàmic de la solvatació i les corbes de solubilitat fins a les formes d'expressió de la concentració, dispersions col·loidals i l'anàlisi quantitativa de les propietats col·ligatives.
           </p>
           <div class="mt-6 flex flex-wrap gap-2 text-xs">
             <a href="#teoria-dissolucions" class="bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg backdrop-blur-xs transition flex items-center gap-1">
@@ -283,7 +286,7 @@
         </div>
       </div>
 
-      <!-- APARTAT 1: TEORIA DE LES DISSOLUCIONS -->
+      <!-- APARTAT 1: TEORIA DE LES DISSOLUCIONS (MCGRAW-HILL) -->
       <article id="teoria-dissolucions" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 scroll-mt-36">
         <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
           <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-lg">
@@ -291,77 +294,214 @@
           </div>
           <div>
             <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Teoria de les Dissolucions</h3>
-            <p class="text-xs sm:text-sm text-slate-500">Naturalesa, components, procés de solvatació i equilibri de solubilitat</p>
+            <p class="text-xs sm:text-sm text-slate-500">Concepte, tipus segons l'estat d'agregació, mecanisme de solvatació, balanç energètic i equilibri de solubilitat</p>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
-            <h4 class="font-bold text-base text-slate-900 flex items-center gap-2">
-              <i class="fa-solid fa-circle-info text-sky-600"></i> Què és una dissolució?
+        <div class="space-y-6 text-sm text-slate-700 leading-relaxed">
+          
+          <!-- Definició i components segons McGraw-Hill -->
+          <div>
+            <h4 class="font-bold text-base text-slate-900 mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-circle-info text-sky-600"></i> 1.1 Concepte i naturalesa d'una dissolució
             </h4>
-            <p>
-              Una <strong>dissolució</strong> és una mescla homogènia a nivell molecular o iònic formada per dues o més substàncies pures que no reaccionen químicament entre si.
+            <p class="mb-3">
+              Segons el text de McGraw-Hill, una <strong>dissolució</strong> és un sistema material homogeni (monofàsic), format per dues o més substàncies químiques pures en proporció variable dins d'uns certs límits, que no reaccionen químicament entre si.
             </p>
-            <ul class="list-disc pl-5 space-y-1.5 text-slate-600">
-              <li><strong>Solut:</strong> És la substància que es dissol, present normalment en menor proporció o la que canvia d'estat físic. Pot ser sòlid, líquid o gasós.</li>
-              <li><strong>Dissolvent (o solvent):</strong> És el medi dispersor, habitualment en major proporció, que conserva l'estat físic de la dissolució final. En les dissolucions aquoses, el dissolvent és l'aigua ($\text{H}_2\text{O}$).</li>
-            </ul>
-
-            <div class="p-4 bg-sky-50 rounded-xl border border-sky-100">
-              <h5 class="font-bold text-sky-900 mb-1 flex items-center gap-2">
-                <i class="fa-solid fa-lightbulb text-amber-500"></i> Classificació segons la proporció de solut
-              </h5>
-              <ul class="space-y-1.5 text-xs text-slate-700">
-                <li><strong>Diluïda:</strong> La quantitat de solut és molt petita respecte a la capacitat màxima de dissolució.</li>
-                <li><strong>Concentrada:</strong> Conté una proporció considerable de solut dissolt.</li>
-                <li><strong>Saturada:</strong> Conté la màxima quantitat possible de solut en equilibri dinàmic amb solut no dissolt a una temperatura determinada.</li>
-                <li><strong>Sobresaturada:</strong> Conté més solut del que permet l'equilibri de saturació a aquesta temperatura. És un estat metaestable molt inestable: qualsevol agitació o un cristall germen provoca la precipitació immediata de l'excés.</li>
-              </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+              <div class="border-l-4 border-sky-500 pl-3">
+                <strong class="text-slate-900 block font-bold text-sm mb-1">Solut</strong>
+                És la substància que es dissol. Es troba habitualment en menor quantitat que el dissolvent o bé és el component que canvia el seu estat físic en formar-se la dissolució. Pot haver-hi més d'un solut a la mateixa mescla.
+              </div>
+              <div class="border-l-4 border-teal-500 pl-3">
+                <strong class="text-slate-900 block font-bold text-sm mb-1">Dissolvent (o solvent)</strong>
+                És el medi dispersant en el qual es distribueix el solut. Se sol trobar en proporció majoritària i determina l'estat d'agregació físic (gasós, líquid o sòlid) de la dissolució resultant. Quan el dissolvent és l'aigua ($\text{H}_2\text{O}$), parlem de <em>dissolucions aquoses</em>.
+              </div>
             </div>
           </div>
 
-          <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
-            <h4 class="font-bold text-base text-slate-900 flex items-center gap-2">
-              <i class="fa-solid fa-atom text-indigo-600"></i> El Procés de Solvatació i Solubilitat
-            </h4>
-            <p>
-              El procés pel qual les molècules de dissolvent envolten i separen les partícules del solut s'anomena <strong>solvatació</strong> (o <strong>hidratació</strong> quan el dissolvent és aigua).
-            </p>
-            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">Balanç Energètic de la Dissolució ($\Delta H_{\text{diss}}$)</span>
-              <p class="text-xs text-slate-600 mb-2">
-                La formació d'una dissolució implica tres etapes termodinàmiques:
-              </p>
-              <ol class="list-decimal pl-4 space-y-1 text-xs text-slate-600">
-                <li>Separació de les partícules de solut ($\Delta H_1 > 0$, endotèrmic).</li>
-                <li>Separació de les molècules de dissolvent ($\Delta H_2 > 0$, endotèrmic).</li>
-                <li>Atracció solut-dissolvent / solvatació ($\Delta H_3 < 0$, exotèrmic).</li>
-              </ol>
-              <p class="mt-2 text-xs font-mono text-indigo-700 bg-white p-2 rounded border border-indigo-100">
-                $$\Delta H_{\text{diss}} = \Delta H_1 + \Delta H_2 + \Delta H_3$$
-              </p>
-            </div>
-
-            <div class="border-l-4 border-teal-500 pl-4 py-1">
-              <strong class="text-teal-900 block text-xs uppercase tracking-wide">Regla General de Solubilitat</strong>
-              <p class="text-xs text-slate-600">
-                <em>"El similar dissol el similar"</em>: Les substàncies polars i iòniques es dissolen millor en dissolvents polars (com l'aigua), mentre que les substàncies apolars es dissolen en dissolvents apolars (com el benzè o l'hexà).
-              </p>
-            </div>
-
-            <div class="p-4 bg-amber-50 rounded-xl border border-amber-200/80">
-              <h5 class="font-bold text-amber-900 text-xs uppercase mb-1">Factors que modifiquen la solubilitat</h5>
-              <ul class="text-xs space-y-1 text-amber-950">
-                <li><strong>Temperatura:</strong> Per a la majoria de sòlids, la solubilitat creix amb $T$ ($\Delta H > 0$). En canvi, en els gasos la solubilitat disminueix en augmentar $T$.</li>
-                <li><strong>Pressió (Llei d'Henry per a gasos):</strong> La solubilitat d'un gas en un líquid és directament proporcional a la pressió parcial del gas sobre el líquid: <span class="font-mono font-bold">$S_g = k_H \cdot P_g$</span>.</li>
-              </ul>
+          <!-- Taula clàssica de McGraw-Hill: Tipus de dissolucions segons l'estat físic -->
+          <div>
+            <h5 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-layer-group text-sky-600"></i> Classificació de les dissolucions segons l'estat d'agregació
+            </h5>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left border-collapse border border-slate-200 rounded-xl overflow-hidden">
+                <thead class="bg-slate-100 text-slate-800 uppercase font-bold text-[11px]">
+                  <tr>
+                    <th class="p-2.5 border border-slate-200">Estat final</th>
+                    <th class="p-2.5 border border-slate-200">Solvent</th>
+                    <th class="p-2.5 border border-slate-200">Solut</th>
+                    <th class="p-2.5 border border-slate-200">Exemple quotidià (McGraw-Hill)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 text-slate-600">
+                  <tr>
+                    <td class="p-2.5 font-bold text-slate-900 border border-slate-200" rowspan="3">Gasoses</td>
+                    <td class="p-2.5 border border-slate-200">Gas</td>
+                    <td class="p-2.5 border border-slate-200">Gas</td>
+                    <td class="p-2.5 border border-slate-200 font-medium">Aire sec ($\text{O}_2$, $\text{CO}_2$, $\text{Ar}$ dissolts en $\text{N}_2$)</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 border border-slate-200">Gas</td>
+                    <td class="p-2.5 border border-slate-200">Líquid</td>
+                    <td class="p-2.5 border border-slate-200">Vapor d'aigua a l'aire (humitat atmosfèrica no condensada)</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 border border-slate-200">Gas</td>
+                    <td class="p-2.5 border border-slate-200">Sòlid</td>
+                    <td class="p-2.5 border border-slate-200">Vapor de naftalina o iode sublimat a l'aire</td>
+                  </tr>
+                  <tr class="bg-sky-50/40">
+                    <td class="p-2.5 font-bold text-sky-900 border border-slate-200" rowspan="3">Líquides</td>
+                    <td class="p-2.5 border border-slate-200 font-semibold">Líquid</td>
+                    <td class="p-2.5 border border-slate-200 font-semibold">Gas</td>
+                    <td class="p-2.5 border border-slate-200 font-medium">Begudes gasoses ($\text{CO}_2$ en aigua), oxigen dissolt per a peixos ($\text{O}_2$)</td>
+                  </tr>
+                  <tr class="bg-sky-50/40">
+                    <td class="p-2.5 border border-slate-200 font-semibold">Líquid</td>
+                    <td class="p-2.5 border border-slate-200 font-semibold">Líquid</td>
+                    <td class="p-2.5 border border-slate-200 font-medium">Vinagre (àcid acètic en aigua), begudes alcohòliques (etanol en aigua)</td>
+                  </tr>
+                  <tr class="bg-sky-50/40">
+                    <td class="p-2.5 border border-slate-200 font-semibold">Líquid</td>
+                    <td class="p-2.5 border border-slate-200 font-semibold">Sòlid</td>
+                    <td class="p-2.5 border border-slate-200 font-medium">Salmorra ($\text{NaCl}$ en aigua), aigua de mar, glucosa en aigua</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 font-bold text-slate-900 border border-slate-200" rowspan="3">Sòlides</td>
+                    <td class="p-2.5 border border-slate-200">Sòlid</td>
+                    <td class="p-2.5 border border-slate-200">Gas</td>
+                    <td class="p-2.5 border border-slate-200">Hidrogen gasós oclòs en pal·ladi metall ($\text{H}_2\text{ en Pd}$)</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 border border-slate-200">Sòlid</td>
+                    <td class="p-2.5 border border-slate-200">Líquid</td>
+                    <td class="p-2.5 border border-slate-200">Amalgames dentals (mercuri líquid en plata sòlida)</td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5 border border-slate-200">Sòlid</td>
+                    <td class="p-2.5 border border-slate-200">Sòlid</td>
+                    <td class="p-2.5 border border-slate-200 font-medium"><strong>Aliatges:</strong> Bronze ($\text{Cu-Sn}$), llautó ($\text{Cu-Zn}$), acer ($\text{Fe-C}$), or de joieria ($\text{Au-Cu}$)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
+
+          <!-- Mecanisme microscòpic i balanç energètic (Entalpia de dissolució) -->
+          <div>
+            <h4 class="font-bold text-base text-slate-900 mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-atom text-indigo-600"></i> 1.2 El procés de solvatació i el balanç termodinàmic
+            </h4>
+            <p class="mb-3 text-slate-700">
+              Perquè una substància es dissolgui en una altra, cal vèncer les forces que uneixen les partícules del solut i les del dissolvent, i establir noves forces atractives entre solut i dissolvent:
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div class="p-3 bg-red-50 rounded-xl border border-red-200 text-xs">
+                <strong class="text-red-900 block font-bold mb-1">Etapa 1: Separació de solut</strong>
+                Trencament de les interaccions solut-solut (enllaços iònics o intermoleculars). Procés endotèrmic:
+                <div class="mt-1 font-mono font-bold text-red-700">$\Delta H_1 > 0$ ($\Delta H_{\text{xarxa}} > 0$)</div>
+              </div>
+              <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs">
+                <strong class="text-amber-900 block font-bold mb-1">Etapa 2: Separació de solvent</strong>
+                Vèncer forces entre molècules de dissolvent per crear forats on s'allotjarà el solut. Endotèrmic:
+                <div class="mt-1 font-mono font-bold text-amber-700">$\Delta H_2 > 0$</div>
+              </div>
+              <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs">
+                <strong class="text-emerald-900 block font-bold mb-1">Etapa 3: Solvatació / Hidratació</strong>
+                Atracció entre molècules de solvent i partícules de solut (ió-dipol o dipol-dipol). Exotèrmic:
+                <div class="mt-1 font-mono font-bold text-emerald-700">$\Delta H_3 < 0$ ($\Delta H_{\text{hidr}} < 0$)</div>
+              </div>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <span class="font-bold text-slate-900 text-sm">Entalpia molar de dissolució:</span>
+                <span class="font-mono text-base font-bold text-indigo-700 bg-white px-3 py-1 rounded-md border border-indigo-200">
+                  $$\Delta H_{\text{diss}} = \Delta H_{\text{xarxa}} + \Delta H_{\text{hidratació}} = \Delta H_1 + \Delta H_2 + \Delta H_3$$
+                </span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                  <strong class="text-slate-900 block font-bold text-[11px] uppercase text-sky-800">Processos Exotèrmics ($\Delta H_{\text{diss}} < 0$)</strong>
+                  L'energia d'hidratació supera la de la xarxa cristal·lina. La dissolució s'escalfa espontàniament. Exemples: dissolució d'hidròxid de sodi ($\text{NaOH}$) o clorur de calci ($\text{CaCl}_2$) en aigua.
+                </div>
+                <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                  <strong class="text-slate-900 block font-bold text-[11px] uppercase text-indigo-800">Processos Endotèrmics ($\Delta H_{\text{diss}} > 0$)</strong>
+                  Cal aportar calor o s'absorbeix calor del medi (el vas es refreda). Són espontanis gràcies a l'<strong>augment d'entropia</strong> ($\Delta S_{\text{diss}} > 0$, augment del desordre). Exemple: nitrat d'amoni ($\text{NH}_4\text{NO}_3$, utilitzat en bosses de fred instantani per a lesions esportives).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Solubilitat, corbes de solubilitat i Llei d'Henry -->
+          <div>
+            <h4 class="font-bold text-base text-slate-900 mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-chart-line text-teal-600"></i> 1.3 Solubilitat i anàlisi de les corbes de solubilitat (McGraw-Hill)
+            </h4>
+            <p class="mb-3 text-slate-700">
+              La <strong>solubilitat ($s$)</strong> és la quantitat màxima de solut que es pot dissoldre en una quantitat determinada de dissolvent (habitualment expressada en <strong>$\text{g de solut} / 100\text{ g d'aigua}$</strong>) a una temperatura especificada.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4 text-xs">
+              <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <strong class="text-slate-900 block font-bold mb-1">Dissolució Insaturada (o diluïda)</strong>
+                Conté menys solut del màxim que admet el dissolvent a aquesta temperatura. Es troba per sota de la corba de solubilitat. Si s'afegeix més solut, es continua dissolent.
+              </div>
+              <div class="p-3 rounded-xl bg-teal-50 border border-teal-200">
+                <strong class="text-teal-900 block font-bold mb-1">Dissolució Saturada (Equilibri)</strong>
+                Conté la màxima quantitat possible de solut en equilibri dinàmic amb el solut sòlid sense dissoldre:
+                <div class="font-mono text-center font-bold text-teal-800 py-1">$\text{Solut (sòlid)} \rightleftharpoons \text{Solut (dissolt)}$</div>
+                Es troba exactament sobre la línia de la corba.
+              </div>
+              <div class="p-3 rounded-xl bg-amber-50 border border-amber-200">
+                <strong class="text-amber-900 block font-bold mb-1">Dissolució Sobresaturada (Metaestable)</strong>
+                Conté més solut del que permet l'equilibri de saturació. S'obté refredant molt lentament i sense agitació una solució saturada a alta temperatura. Qualsevol vibració o un cristall germen provoca la precipitació immediata de l'excés.
+              </div>
+            </div>
+
+            <!-- Quadre metodològic McGraw-Hill: Càlculs de cristal·lització -->
+            <div class="p-4 bg-sky-50 rounded-xl border border-sky-200 text-xs text-slate-700 space-y-2">
+              <div class="font-bold text-sky-950 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-sky-600"></i> Metodologia McGraw-Hill: Càlculs de cristal·lització per refredament
+              </div>
+              <p>
+                A la majoria dels sòlids ($\text{KNO}_3$, $\text{CuSO}_4$, $\text{Pb(NO}_3)_2$), la solubilitat creix en augmentar la temperatura. Si es refreda una dissolució saturada des d'una temperatura $T_1$ fins a una temperatura inferior $T_2$, la quantitat de solut que ja no pot restar dissolta <strong>cristal·litza i precipita</strong> al fons del recipient:
+              </p>
+              <div class="bg-white p-2.5 rounded-lg border border-sky-200 font-mono text-center font-bold text-sky-900">
+                $$m_{\text{precipitat}} = s(T_1) - s(T_2) \quad \text{(per cada 100 g de dissolvent)}$$
+              </div>
+            </div>
+
+            <!-- Solubilitat de gasos i Llei d'Henry -->
+            <div class="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-2">
+              <strong class="text-slate-900 font-bold text-sm block flex items-center gap-2">
+                <i class="fa-solid fa-wind text-indigo-500"></i> Solubilitat dels gasos en líquids: Efecte de la Temperatura i Llei d'Henry
+              </strong>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                <div>
+                  <strong class="text-indigo-900 block mb-1">Influència de la Temperatura:</strong>
+                  A diferència dels sòlids, la solubilitat dels gasos en líquids <strong>disminueix sempre en augmentar la temperatura</strong>. A temperatures més altes, l'energia cinètica mitjana de les molècules de gas és superior a les febles forces d'atracció amb el líquid, escapant cap a la fase gasosa. (Exemple mediambiental: les centrals que aboquen aigua calenta als rius provoquen asfíxia als peixos per pèrdua d'$\text{O}_2$ dissolt).
+                </div>
+                <div>
+                  <strong class="text-indigo-900 block mb-1">Llei d'Henry (Efecte de la pressió):</strong>
+                  La solubilitat d'un gas en un líquid a temperatura constant és directament proporcional a la pressió parcial exercida pel gas sobre la superfície del líquid:
+                  <div class="font-mono font-bold text-center text-indigo-800 bg-white p-1.5 rounded border border-indigo-100 my-1">
+                    $$s = k_H \cdot P_{\text{gas}} \quad \text{o bé} \quad C = k_H \cdot P$$
+                  </div>
+                  <em>Aplicacions McGraw-Hill:</em> Descompressió ràpida en obrir refrescos amb gas (s'alliberen bombolles de $\text{CO}_2$ perquè $P$ passa de $4\text{ atm}$ a $0,0004\text{ atm}$) i mal dels submarinistes (el $\text{N}_2$ dissolt a alta pressió a gran profunditat forma perilloses bombolles a la sang si es puja a la superfície massa ràpidament).
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </article>
 
-      <!-- APARTAT 2: CANVIS DE CONCENTRACIÓ -->
+      <!-- APARTAT 2: CANVIS DE CONCENTRACIÓ (MCGRAW-HILL) -->
       <article id="canvis-concentracio" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 scroll-mt-36">
         <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
           <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg">
@@ -369,26 +509,26 @@
           </div>
           <div>
             <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Canvis de Concentració i Formes d'Expressió</h3>
-            <p class="text-xs sm:text-sm text-slate-500">Unitats físiques i químiques, càlculs de dilució i mescles de dissolucions</p>
+            <p class="text-xs sm:text-sm text-slate-500">Unitats físiques i químiques oficials, relacions amb la densitat, dilucions i mescles</p>
           </div>
         </div>
 
         <h4 class="font-bold text-slate-900 text-base mb-4 flex items-center gap-2">
-          <i class="fa-solid fa-square-root-variable text-indigo-600"></i> Formes d'expressar la concentració (Química 1r Batxillerat)
+          <i class="fa-solid fa-square-root-variable text-indigo-600"></i> Fórmules de Concentració (Programa de 1r Batxillerat McGraw-Hill)
         </h4>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           
           <!-- Molaritat -->
           <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition">
             <div class="flex justify-between items-center mb-2">
-              <span class="text-xs font-bold text-sky-700 uppercase">Molaritat (M)</span>
+              <span class="text-xs font-bold text-sky-700 uppercase">Molaritat (M o c)</span>
               <span class="text-[11px] bg-sky-100 text-sky-800 px-2 py-0.5 rounded font-mono">mol / L</span>
             </div>
             <div class="py-2 text-center text-lg font-mono text-slate-900">
               $$M = \frac{n_{\text{solut}}}{V_{\text{dissolució}}\text{ (L)}} = \frac{m_{\text{s}}}{M_m \cdot V}$$
             </div>
-            <p class="text-xs text-slate-500 mt-2">Mols de solut per litre de dissolució final. Depèn de la temperatura pel canvi de volum.</p>
+            <p class="text-xs text-slate-500 mt-2">Mols de solut per litre de dissolució final. <strong>Depèn de la temperatura</strong> degut a la dilatació volumètrica del líquid.</p>
           </div>
 
           <!-- Molalitat -->
@@ -400,7 +540,7 @@
             <div class="py-2 text-center text-lg font-mono text-slate-900">
               $$m = \frac{n_{\text{solut}}}{m_{\text{dissolvent}}\text{ (kg)}}$$
             </div>
-            <p class="text-xs text-slate-500 mt-2">Mols de solut per kilogram de dissolvent pur. <strong>No varia amb la temperatura</strong> (clau en propietats col·ligatives!).</p>
+            <p class="text-xs text-slate-500 mt-2">Mols de solut per kilogram de dissolvent pur. <strong>No varia amb la temperatura</strong> (fonamental per a les lleis col·ligatives!).</p>
           </div>
 
           <!-- Fracció Molar -->
@@ -410,13 +550,13 @@
               <span class="text-[11px] bg-sky-100 text-sky-800 px-2 py-0.5 rounded font-mono">adimensional</span>
             </div>
             <div class="py-2 text-center text-lg font-mono text-slate-900">
-              $$\chi_A = \frac{n_A}{n_{\text{total}}}, \quad \sum \chi_i = 1$$
+              $$\chi_A = \frac{n_A}{n_{\text{total}}}, \quad \chi_{\text{solut}} + \chi_{\text{dissolvent}} = 1$$
             </div>
-            <p class="text-xs text-slate-500 mt-2">Relació entre els mols d'un component i el total de mols de la mescla.</p>
+            <p class="text-xs text-slate-500 mt-2">Tant per u molar d'un component respecte al total de mols. Tampoc depèn de la temperatura.</p>
           </div>
 
           <!-- % en massa -->
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-indigo-300 transition">
             <div class="flex justify-between items-center mb-2">
               <span class="text-xs font-bold text-indigo-700 uppercase">Percentatge en massa</span>
               <span class="text-[11px] bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded font-mono">% m/m</span>
@@ -424,36 +564,36 @@
             <div class="py-2 text-center text-lg font-mono text-slate-900">
               $$\% = \frac{m_{\text{solut}}}{m_{\text{dissolució}}} \times 100$$
             </div>
-            <p class="text-xs text-slate-500 mt-2">Grams de solut per cada 100 g de dissolució total ($m_{\text{diss}} = m_{\text{solut}} + m_{\text{dissolvent}}$).</p>
+            <p class="text-xs text-slate-500 mt-2">Massa de solut per cada 100 unitats de massa de dissolució total ($m_{\text{diss}} = m_{\text{solut}} + m_{\text{solvent}}$).</p>
           </div>
 
           <!-- Concentració en massa (g/L) -->
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-indigo-300 transition">
             <div class="flex justify-between items-center mb-2">
               <span class="text-xs font-bold text-indigo-700 uppercase">Concentració en massa</span>
               <span class="text-[11px] bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded font-mono">g / L</span>
             </div>
             <div class="py-2 text-center text-lg font-mono text-slate-900">
-              $$C = \frac{m_{\text{solut}}\text{ (g)}}{V_{\text{dissolució}}\text{ (L)}}$$
+              $$C = \frac{m_{\text{solut}}\text{ (g)}}{V_{\text{dissolució}}\text{ (L)}} = M \cdot M_m$$
             </div>
-            <p class="text-xs text-slate-500 mt-2">Grams de solut continguts en cada litre de dissolució. Es relaciona per $C = M \cdot M_m$.</p>
+            <p class="text-xs text-slate-500 mt-2">Grams de solut continguts en un litre de dissolució. Es relaciona directament amb la molaritat.</p>
           </div>
 
-          <!-- Densitat de la dissolució -->
-          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-300 transition">
+          <!-- Parts per milió (ppm) -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-indigo-300 transition">
             <div class="flex justify-between items-center mb-2">
-              <span class="text-xs font-bold text-indigo-700 uppercase">Densitat (&rho; o d)</span>
-              <span class="text-[11px] bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded font-mono">g/mL o g/L</span>
+              <span class="text-xs font-bold text-indigo-700 uppercase">Parts per milió (ppm)</span>
+              <span class="text-[11px] bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded font-mono">mg/kg o mg/L</span>
             </div>
             <div class="py-2 text-center text-lg font-mono text-slate-900">
-              $$\rho = \frac{m_{\text{dissolució}}}{V_{\text{dissolució}}}$$
+              $$\text{ppm} = \frac{m_{\text{solut}}\text{ (mg)}}{m_{\text{diss}}\text{ (kg)}} \approx \frac{m_{\text{solut}}\text{ (mg)}}{V_{\text{diss}}\text{ (L)}}$$
             </div>
-            <p class="text-xs text-slate-500 mt-2"><em>Atenció:</em> La densitat fa referència a la massa TOTAL de la dissolució, no només al solut.</p>
+            <p class="text-xs text-slate-500 mt-2">Per a solucions extremament diluïdes (contaminants a l'aigua potable, gasos a l'atmosfera).</p>
           </div>
 
         </div>
 
-        <!-- PROCEDIMENTS DE CÀLCUL: Dilucions i Mescles -->
+        <!-- PROCEDIMENTS DE CÀLCUL: Dilucions i Mescles segons McGraw-Hill -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-200">
           
           <!-- Dilució -->
@@ -462,13 +602,13 @@
               <i class="fa-solid fa-water text-blue-600"></i> 1. Dilució d'una dissolució concentrada
             </h5>
             <p class="text-xs text-slate-700 mb-3">
-              En afegir dissolvent pur a una dissolució concentrada, la quantitat de matèria de solut <strong>no canvia</strong> ($n_1 = n_2$).
+              En afegir solvent pur, la quantitat total de matèria (mols o grams) de solut <strong>roman constant</strong> ($n_1 = n_2$):
             </p>
             <div class="bg-white p-3 rounded-lg border border-blue-200 text-center font-mono font-bold text-blue-900 text-base mb-2">
               $$C_1 \cdot V_1 = C_2 \cdot V_2 \quad \Longleftrightarrow \quad M_1 \cdot V_1 = M_2 \cdot V_2$$
             </div>
             <p class="text-[11px] text-slate-600">
-              On $V_1$ és el volum que cal agafar de la dissolució concentrada inicial ($C_1$), i $V_2$ és el volum final que preparem a la concentració desitjada ($C_2$).
+              On $V_1$ és el volum que cal pipetejar de la solució mare inicial concentrada ($M_1$), i $V_2$ és el volum final enrasat en matràs aforat ($M_2$).
             </p>
           </div>
 
@@ -478,20 +618,20 @@
               <i class="fa-solid fa-shuffle text-purple-600"></i> 2. Mescla de dues dissolucions del mateix solut
             </h5>
             <p class="text-xs text-slate-700 mb-3">
-              Els mols totals són la suma dels mols que aporta cada solució: $n_{\text{total}} = n_1 + n_2$.
+              Els mols totals són la suma dels mols que aporta cadascuna de les dissolucions inicials:
             </p>
             <div class="bg-white p-3 rounded-lg border border-purple-200 text-center font-mono font-bold text-purple-900 text-base mb-2">
-              $$M_f = \frac{n_1 + n_2}{V_f} = \frac{M_1 V_1 + M_2 V_2}{V_1 + V_2}$$
+              $$M_f = \frac{n_{\text{total}}}{V_f} = \frac{M_1 V_1 + M_2 V_2}{V_f}$$
             </div>
             <p class="text-[11px] text-slate-600">
-              <em>Nota:</em> Se sol assumir que els volums són additius ($V_f = V_1 + V_2$), llevat que s'indiqui una densitat experimental de la mescla final.
+              <em>Nota McGraw-Hill:</em> Si no s'especifica densitat, es consideren volums additius ($V_f = V_1 + V_2$). Si es dóna la densitat final $\rho_f$, es calcula $V_f = (m_1 + m_2)/\rho_f$.
             </p>
           </div>
 
         </div>
       </article>
 
-      <!-- APARTAT 3: DISPERSIONS COL·LOIDALS -->
+      <!-- APARTAT 3: DISPERSIONS COL·LOIDALS (MCGRAW-HILL) -->
       <article id="dispersions-colloidals" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 scroll-mt-36">
         <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
           <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-lg">
@@ -499,15 +639,16 @@
           </div>
           <div>
             <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Dispersions Col·loidals</h3>
-            <p class="text-xs sm:text-sm text-slate-500">Mida de partícula, fase dispersa i medi de dispersió, efecte Tyndall i moviment brownià</p>
+            <p class="text-xs sm:text-sm text-slate-500">Mida de partícula, els 8 tipus de col·loides, efecte Tyndall, moviment brownià, coagulació i diàlisi</p>
           </div>
         </div>
 
         <div class="space-y-6 text-sm text-slate-700">
           <p>
-            Un <strong>col·loide</strong> (o dispersió col·loidal) és un sistema intermedi entre les dissolucions vertaderes i les suspensions. Està constituït per dues fases: la <strong>fase dispersa</strong> (partícules de mida compresa entre $1\text{ nm}$ i $1000\text{ nm}$) i el <strong>medi de dispersió</strong>.
+            Una <strong>dispersió col·loidal (o col·loide)</strong> és un sistema heterogeni microscòpicament intermedi entre les dissolucions vertaderes i les suspensions. Està constituït per dues fases: la <strong>fase dispersa</strong> (partícules de mida compresa estrictament entre $1\text{ nm}$ i $1000\text{ nm}$ o $1\ \mu\text{m}$) i el <strong>medi de dispersió</strong>.
           </p>
 
+          <!-- Comparativa canònica de 3 sistemes segons McGraw-Hill -->
           <div class="overflow-x-auto">
             <table class="w-full text-xs text-left border-collapse border border-slate-200 rounded-xl overflow-hidden">
               <thead class="bg-slate-100 text-slate-800 uppercase font-bold text-[11px]">
@@ -521,67 +662,117 @@
               <tbody class="divide-y divide-slate-200 text-slate-600">
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Mida de partícula</td>
-                  <td class="p-3 border border-slate-200 font-mono">&lt; 1 nm (àtoms, ions, molècules)</td>
-                  <td class="p-3 border border-slate-200 font-mono font-bold text-teal-800">1 nm a 1000 nm (macromolècules, agregats)</td>
-                  <td class="p-3 border border-slate-200 font-mono">&gt; 1000 nm (partícules visibles)</td>
+                  <td class="p-3 border border-slate-200 font-mono">&lt; 1 nm (àtoms, ions, petites molècules)</td>
+                  <td class="p-3 border border-slate-200 font-mono font-bold text-teal-800">1 nm a 1000 nm (macromolècules, micel·les)</td>
+                  <td class="p-3 border border-slate-200 font-mono">&gt; 1000 nm (grumolls i agregats visibles)</td>
                 </tr>
                 <tr>
-                  <td class="p-3 font-semibold text-slate-800 border border-slate-200">Homogeneïtat</td>
-                  <td class="p-3 border border-slate-200">Homogènia</td>
-                  <td class="p-3 border border-slate-200">Heterogènia al microscopi</td>
-                  <td class="p-3 border border-slate-200">Heterogènia a simple vista</td>
+                  <td class="p-3 font-semibold text-slate-800 border border-slate-200">Aspecte visual</td>
+                  <td class="p-3 border border-slate-200">Totalment transparent i clar</td>
+                  <td class="p-3 border border-slate-200">Lleugerament tèrbol o iridescent (opalescent)</td>
+                  <td class="p-3 border border-slate-200">Completament opac o tèrbol</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Sedimentació</td>
                   <td class="p-3 border border-slate-200">No sedimenta mai</td>
                   <td class="p-3 border border-slate-200">No sedimenta per gravetat (cal ultracentrifugació)</td>
-                  <td class="p-3 border border-slate-200">Sedimenta en repòs per gravetat</td>
+                  <td class="p-3 border border-slate-200">Sedimenta ràpidament per gravetat en repòs</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Efecte Tyndall (Llum)</td>
-                  <td class="p-3 border border-slate-200">Transparent; el feix no és visible</td>
-                  <td class="p-3 border border-slate-200 font-semibold text-teal-700">Dispersa la llum (trajectòria visible)</td>
-                  <td class="p-3 border border-slate-200">Opaca o tèrbola; reflecteix la llum</td>
+                  <td class="p-3 border border-slate-200">Transparent; el feix no és visible lateralment</td>
+                  <td class="p-3 border border-slate-200 font-semibold text-teal-700">Dispersa la llum visible (trajectòria lluminosa)</td>
+                  <td class="p-3 border border-slate-200">Reflecteix o absorbeix totalment la llum</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Filtrabilitat</td>
-                  <td class="p-3 border border-slate-200">Passa paper de filtre i membranes</td>
-                  <td class="p-3 border border-slate-200">Passa paper de filtre ordinari; retingut per membranes semipermeables</td>
-                  <td class="p-3 border border-slate-200">Separable amb paper de filtre ordinari</td>
-                </tr>
-                <tr>
-                  <td class="p-3 font-semibold text-slate-800 border border-slate-200">Exemples</td>
-                  <td class="p-3 border border-slate-200">Aigua amb sucre, aigua amb sal</td>
-                  <td class="p-3 border border-slate-200 font-medium text-slate-900">Llet, maionesa, gelatina, boira, sang, or col·loidal</td>
-                  <td class="p-3 border border-slate-200">Aigua amb farina, fang, aigua amb argila</td>
+                  <td class="p-3 border border-slate-200">Passa paper de filtre i membranes biològiques</td>
+                  <td class="p-3 border border-slate-200">Passa paper de filtre ordinari; <strong>retingut per membranes de diàlisi</strong></td>
+                  <td class="p-3 border border-slate-200">Retingut fàcilment per paper de filtre ordinari</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
+          <!-- Els 8 tipus de col·loides de McGraw-Hill -->
+          <div>
+            <h5 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-shapes text-teal-600"></i> Els 8 tipus de sistemes col·loidals (McGraw-Hill)
+            </h5>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Aerosol líquid</span>
+                <span class="text-slate-500 block mb-1">Líquid en Gas</span>
+                Boira, núvols, aerosols farmacèutics.
+              </div>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Aerosol sòlid</span>
+                <span class="text-slate-500 block mb-1">Sòlid en Gas</span>
+                Fum, sutge, cendra volcànica a l'aire.
+              </div>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Escuma</span>
+                <span class="text-slate-500 block mb-1">Gas en Líquid</span>
+                Escuma d'afaitar, nata muntada, sabó.
+              </div>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Emulsió</span>
+                <span class="text-slate-500 block mb-1">Líquid en Líquid</span>
+                Llet, maionesa, cremes cosmètiques.
+              </div>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Sol</span>
+                <span class="text-slate-500 block mb-1">Sòlid en Líquid</span>
+                Pintures, tinta xinesa, or col·loidal, sang.
+              </div>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Escuma sòlida</span>
+                <span class="text-slate-500 block mb-1">Gas en Sòlid</span>
+                Pedra tosca, merenga seca, porexpan.
+              </div>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Gel</span>
+                <span class="text-slate-500 block mb-1">Líquid en Sòlid</span>
+                Gelatina, gel de sílice, formatge, mantega.
+              </div>
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200">
+                <span class="font-bold text-teal-800 block mb-0.5">Sol sòlid</span>
+                <span class="text-slate-500 block mb-1">Sòlid en Sòlid</span>
+                Robí sintètic, vidres tintats amb or/seleni.
+              </div>
+            </div>
+          </div>
+
+          <!-- Propietats especials: Tyndall, Brownià, Coagulació i Diàlisi -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
             <div class="p-4 rounded-xl border border-teal-200 bg-teal-50/40">
-              <h5 class="font-bold text-teal-900 flex items-center gap-2 mb-2 text-sm">
-                <i class="fa-solid fa-wand-magic-sparkles text-teal-600"></i> Efecte Tyndall
+              <h5 class="font-bold text-teal-900 flex items-center gap-2 mb-1.5 text-sm">
+                <i class="fa-solid fa-wand-magic-sparkles text-teal-600"></i> Efecte Tyndall i Moviment Brownià
               </h5>
+              <p class="text-xs text-slate-700 leading-relaxed mb-2">
+                <strong>Efecte Tyndall:</strong> Quan un feix de llum travessa un col·loide, les partícules disperses (de diàmetre semblant a la longitud d'ona de la llum) dispersen la radiació en totes direccions, fent que el camí del raig es vegi nítidament de perfil.
+              </p>
               <p class="text-xs text-slate-700 leading-relaxed">
-                Quan un feix de llum travessa una dispersió col·loidal, les partícules disperses (que tenen dimensions comparables a la longitud d'ona de la llum) dispersen la llum en totes direccions, fent que el camí del feix es torni visible lateralment. Permet distingir ràpidament un col·loide d'una dissolució vertadera mitjançant un punter làser.
+                <strong>Moviment Brownià:</strong> Moviment caòtic en ziga-zaga de les partícules col·loidals causat pel xoc ininterromput de les molècules del solvent. Impedeix que la gravetat les faci precipitar.
               </p>
             </div>
 
             <div class="p-4 rounded-xl border border-teal-200 bg-teal-50/40">
-              <h5 class="font-bold text-teal-900 flex items-center gap-2 mb-2 text-sm">
-                <i class="fa-solid fa-arrows-spin text-teal-600"></i> Moviment Brownià i Estabilitat
+              <h5 class="font-bold text-teal-900 flex items-center gap-2 mb-1.5 text-sm">
+                <i class="fa-solid fa-arrows-spin text-teal-600"></i> Coagulació / Floculació i Diàlisi
               </h5>
+              <p class="text-xs text-slate-700 leading-relaxed mb-2">
+                <strong>Coagulació / Floculació:</strong> Les partícules col·loidals tenen càrrega elèctrica superficial que fa que es repel·leixin. En afegir un electròlit (com sals d'$\text{Al}^{3+}$ o $\text{Fe}^{3+}$ a les plantes depuradores d'aigua), els contraions neutralitzen la càrrega, els col·loides s'agreguen i precipiten.
+              </p>
               <p class="text-xs text-slate-700 leading-relaxed">
-                Les partícules col·loidals es troben en un constant moviment caòtic en ziga-zaga a causa dels xocs ininterromputs amb les molècules del medi dispersant. Aquest moviment contraresta la gravetat i impedeix que sedimentin. A més, la càrrega elèctrica superficial fa que es repel·leixin evitant la seva coagulació.
+                <strong>Diàlisi:</strong> Separació de molècules petites i ions d'un col·loide mitjançant una membrana semipermeable. És el principi fonamental de l'<strong>hemodiàlisi</strong> mèdica per netejar la sang de pacients renals.
               </p>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- APARTAT 4: PROPIETATS DE LES DISSOLUCIONS (COL·LIGATIVES) -->
+      <!-- APARTAT 4: PROPIETATS COL·LIGATIVES (MCGRAW-HILL) -->
       <article id="propietats-dissolucions" class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 scroll-mt-36">
         <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-6">
           <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg">
@@ -589,7 +780,7 @@
           </div>
           <div>
             <h3 class="text-xl sm:text-2xl font-bold text-slate-900">Propietats de les Dissolucions: Propietats Col·ligatives</h3>
-            <p class="text-xs sm:text-sm text-slate-500">Llei de Raoult, augment ebullioscòpic, descens crioscòpic i pressió osmòtica</p>
+            <p class="text-xs sm:text-sm text-slate-500">Llei de Raoult, augment ebullioscòpic, descens crioscòpic, pressió osmòtica i factor de van 't Hoff</p>
           </div>
         </div>
 
@@ -597,16 +788,16 @@
           
           <div class="bg-amber-50/70 border border-amber-200 p-4 rounded-xl text-slate-800">
             <h4 class="font-bold text-amber-900 mb-1 flex items-center gap-2 text-sm">
-              <i class="fa-solid fa-circle-exclamation text-amber-600"></i> Què són les propietats col·ligatives?
+              <i class="fa-solid fa-circle-exclamation text-amber-600"></i> Què són les propietats col·ligatives segons McGraw-Hill?
             </h4>
             <p class="text-xs leading-relaxed text-slate-700">
-              Són aquelles propietats de les dissolucions que <strong>depenen únicament del nombre total de partícules de solut</strong> (concentració de partícules) presents en una quantitat determinada de dissolvent, i <strong>no de la seva naturalesa química o mida</strong>.
+              Són aquelles propietats físiques de les dissolucions que <strong>depenen exclusivament del nombre de partícules de solut</strong> (concentració de partícules) dissoltes en una quantitat determinada de solvent, i <strong>no de la seva naturalesa química, massa o mida</strong>.
             </p>
             <div class="mt-3 pt-3 border-t border-amber-200/60 flex flex-wrap items-center gap-3 text-xs">
               <span class="font-bold text-amber-950">Factor de van 't Hoff ($i$):</span>
               <span class="bg-white px-2.5 py-1 rounded border border-amber-200">No electròlits (glucosa, sacarosa, urea): $i = 1$</span>
-              <span class="bg-white px-2.5 py-1 rounded border border-amber-200">Electròlits forts: $i \approx \nu$ (ex: $\text{NaCl} \to i = 2$, $\text{CaCl}_2 \to i = 3$)</span>
-              <span class="bg-white px-2.5 py-1 rounded border border-amber-200 font-mono">General: $i = 1 + \alpha(\nu - 1)$</span>
+              <span class="bg-white px-2.5 py-1 rounded border border-amber-200">Electròlits forts: $i \approx \nu$ ($\text{NaCl} \to i=2$, $\text{CaCl}_2 \to i=3$, $\text{Al}_2(\text{SO}_4)_3 \to i=5$)</span>
+              <span class="bg-white px-2.5 py-1 rounded border border-amber-200 font-mono">Electròlits febles: $i = 1 + \alpha(\nu - 1)$</span>
             </div>
           </div>
 
@@ -620,11 +811,10 @@
                 <h5 class="font-bold text-slate-900 text-sm">Descens de la pressió de vapor (Llei de Raoult)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                Quan s'afegeix un solut no volàtil a un dissolvent pur, les molècules de solut ocupen part de la superfície del líquid, reduint la quantitat de molècules de solvent capaces d'evaporar-se.
+                Les molècules de solut no volàtil ocupen llocs a la superfície lliure del líquid, disminuint la fracció de molècules de solvent en contacte amb el vapor capaços d'escapar.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-sky-800 text-sm mb-2">
-                $$\Delta P = P^\circ - P = P^\circ \cdot \chi_{\text{solut}} \cdot i$$
-                $$P = P^\circ \cdot \chi_{\text{dissolvent}}$$
+                $$P = P^\circ \cdot \chi_{\text{dissolvent}} \implies \Delta P = P^\circ - P = P^\circ \cdot \chi_{\text{solut}} \cdot i$$
               </div>
               <p class="text-[11px] text-slate-500">On $P^\circ$ és la pressió de vapor del dissolvent pur i $\chi$ és la fracció molar.</p>
             </div>
@@ -636,12 +826,12 @@
                 <h5 class="font-bold text-slate-900 text-sm">Augment ebullioscòpic (&Delta;T<sub>e</sub>)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                Com que la pressió de vapor disminueix, cal una temperatura més elevada perquè s'iguali a la pressió atmosfèrica exterior. El punt d'ebullició de la dissolució és sempre superior al del dissolvent pur.
+                Un líquid bull quan la seva pressió de vapor s'iguala a la pressió exterior. Com que el solut redueix la pressió de vapor, cal una temperatura superior perquè assoleixi el punt d'ebullició.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-red-800 text-sm mb-2">
                 $$\Delta T_e = T_e - T_e^\circ = K_e \cdot m \cdot i$$
               </div>
-              <p class="text-[11px] text-slate-500">$K_e$: constant ebullioscòpica molal (per a l'aigua: $0,512\ ^\circ\text{C}\cdot\text{kg/mol}$).</p>
+              <p class="text-[11px] text-slate-500">$K_e$: constant ebullioscòpica molal de l'aigua: $K_e = 0,512\ ^\circ\text{C}\cdot\text{kg}\cdot\text{mol}^{-1}$.</p>
             </div>
 
             <!-- 3. Descens crioscòpic -->
@@ -651,12 +841,12 @@
                 <h5 class="font-bold text-slate-900 text-sm">Descens crioscòpic (&Delta;T<sub>c</sub>)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                Les partícules de solut obstaculitzen la formació de l'estructura cristal·lina sòlida regular. La dissolució es congela a una temperatura inferior a la del dissolvent pur.
+                Les partícules de solut obstaculitzen la formació de l'estructura cristal·lina ordenada del dissolvent en refredar-se, exigint una temperatura més baixa per congelar-se.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-cyan-800 text-sm mb-2">
                 $$\Delta T_c = T_c^\circ - T_c = K_c \cdot m \cdot i$$
               </div>
-              <p class="text-[11px] text-slate-500">$K_c$: constant crioscòpica molal (per a l'aigua és $1,86\ ^\circ\text{C}\cdot\text{kg/mol}$). <em>Aplicació: sal a les carreteres glaçades</em>.</p>
+              <p class="text-[11px] text-slate-500">$K_c$: constant crioscòpica molal de l'aigua: $K_c = 1,86\ ^\circ\text{C}\cdot\text{kg}\cdot\text{mol}^{-1}$. <em>Aplicació: sal a les carreteres i anticongelants</em>.</p>
             </div>
 
             <!-- 4. Pressió osmòtica -->
@@ -666,25 +856,30 @@
                 <h5 class="font-bold text-slate-900 text-sm">Pressió osmòtica (&Pi; - Llei de van 't Hoff)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                L'<strong>osmòlisi</strong> és el flux espontani de molècules de dissolvent pur a través d'una membrana semipermeable cap a la dissolució més concentrada.
+                La pressió osmòtica és la pressió que cal aplicar sobre la dissolució per aturar el flux espontani de solvent pur a través d'una membrana semipermeable cap a la dissolució.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-teal-800 text-sm mb-2">
-                $$\Pi = M \cdot R \cdot T \cdot i$$
+                $$\Pi = M \cdot R \cdot T \cdot i \quad \Longleftrightarrow \quad \Pi \cdot V = n \cdot R \cdot T \cdot i$$
               </div>
-              <p class="text-[11px] text-slate-500">$M$: molaritat ($\text{mol/L}$), $R = 0,082\ \text{atm}\cdot\text{L}\cdot\text{mol}^{-1}\cdot\text{K}^{-1}$, $T$: temperatura absoluta en Kelvin.</p>
+              <p class="text-[11px] text-slate-500">$R = 0,082\ \text{atm}\cdot\text{L}\cdot\text{mol}^{-1}\cdot\text{K}^{-1}$, $T$ en Kelvin ($T = T(^\circ\text{C}) + 273,15$).</p>
             </div>
 
           </div>
 
-          <!-- Aplicació pràctica: Determinació de masses moleculars desconegudes -->
-          <div class="p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-700 flex items-start gap-3">
-            <i class="fa-solid fa-microchip text-slate-500 text-lg mt-0.5"></i>
-            <div>
-              <strong class="text-slate-900 block mb-1">Determinació experimental de masses moleculars (Crioscòpia i Osmometria):</strong>
-              Mesurant experimentalment el descens crioscòpic $\Delta T_c$ o la pressió osmòtica $\Pi$, podem calcular la massa molar ($M_m$) de compostos orgànics o biomolècules:
-              <span class="font-mono text-sky-800 font-bold block mt-1">
-                $$M_m = \frac{K_c \cdot m_{\text{solut}}\text{ (g)}}{\Delta T_c \cdot m_{\text{dissolvent}}\text{ (kg)}} \qquad \text{o bé} \qquad M_m = \frac{m_{\text{solut}}\text{ (g)} \cdot R \cdot T}{\Pi \cdot V\text{ (L)}}$$
-              </span>
+          <!-- Quadre d'aplicacions biològiques i tecnològiques de McGraw-Hill -->
+          <div class="p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-700 space-y-2">
+            <strong class="text-slate-900 block text-sm font-bold flex items-center gap-2">
+              <i class="fa-solid fa-microscope text-teal-700"></i> Aplicacions rellevants de l'osmòlisi (McGraw-Hill)
+            </strong>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+              <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block font-bold text-[11px] uppercase text-sky-800">Osmosi cel·lular i Glòbuls Vermells:</strong>
+                En solució <strong>isotònica</strong> (com el sèrum fisiològic de $\text{NaCl}$ al $0,9\%$), les cèl·lules mantenen el volum. En medi <strong>hipotònic</strong> (aigua pura), l'aigua entra a la cèl·lula fins que s'infla i rebenta (<em>hemòlisi</em> en eritròcits o <em>turgència</em> en vegetals). En medi <strong>hipertònic</strong>, l'aigua surt i la cèl·lula s'arruga (<em>crenació</em> o <em>plasmòlisi</em>).
+              </div>
+              <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                <strong class="text-slate-900 block font-bold text-[11px] uppercase text-teal-800">Osmosi Inversa (Dessalinització d'aigua de mar):</strong>
+                Si s'aplica una pressió hidràulica externa superior a la pressió osmòtica ($\Pi$), s'inverteix el flux natural, obligant l'aigua pura a sortir de l'aigua salada a través de la membrana semipermeable. És la base tecnològica de les plantes dessalinitzadores d'aigua marina.
+              </div>
             </div>
           </div>
 
@@ -694,7 +889,7 @@
     </div>
 
     <!-- ================================================================= -->
-    <!-- SECCIÓ 2: PESTANYA D'ACTIVITATS (REFORÇ I AMPLIACIÓ)               -->
+    <!-- SECCIÓ 2: PESTANYA D'ACTIVITATS (AMPLIADA A 11 EXERCICIS)          -->
     <!-- ================================================================= -->
     <div id="section-activitats" class="subcontent-pane space-y-8 animate-fade-in" style="display: none;">
 
@@ -703,20 +898,20 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
           <div>
             <span class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md border border-amber-200/60">
-              Pràctica i Autoavaluació
+              Pràctica i Autoavaluació &bull; Model McGraw-Hill
             </span>
-            <h3 class="text-2xl font-black text-slate-900 mt-2">Activitats de Dissolucions</h3>
-            <p class="text-sm text-slate-500 mt-1">Problemes resolts pas a pas per consolidar conceptes i preparar les proves d'avaluació</p>
+            <h3 class="text-2xl font-black text-slate-900 mt-2">Banc d'Activitats de Dissolucions (11 problemes)</h3>
+            <p class="text-sm text-slate-500 mt-1">Exercicis graduats per nivell de dificultat amb resolucions completes pas a pas</p>
           </div>
           
           <!-- Filtre per tipus d'activitat -->
           <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl text-xs font-semibold">
-            <button onclick="filterActivities('all')" id="btn-filter-all" class="act-filter-btn active px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs">Totes</button>
+            <button onclick="filterActivities('all')" id="btn-filter-all" class="act-filter-btn active px-3 py-1.5 rounded-lg bg-white text-slate-900 shadow-2xs">Totes (11)</button>
             <button onclick="filterActivities('reforc')" id="btn-filter-reforc" class="act-filter-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900">
-              <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1"></span>Reforç
+              <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1"></span>Reforç (6)
             </button>
             <button onclick="filterActivities('ampliacio')" id="btn-filter-ampliacio" class="act-filter-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900">
-              <span class="inline-block w-2 h-2 rounded-full bg-indigo-500 mr-1"></span>Ampliació
+              <span class="inline-block w-2 h-2 rounded-full bg-indigo-500 mr-1"></span>Ampliació (5)
             </button>
           </div>
         </div>
@@ -724,7 +919,7 @@
         <!-- Llista d'exercicis -->
         <div class="mt-8 space-y-6" id="activities-container">
 
-          <!-- ACTIVITAT DE REFORÇ 1 -->
+          <!-- ================= REFORÇ 1 ================= -->
           <div class="activity-card reforc bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-emerald-200/70 hover:border-emerald-300 transition">
             <div class="flex items-center justify-between gap-2 mb-3">
               <div class="flex items-center gap-2">
@@ -744,33 +939,19 @@
               b) La molaritat ($M$) de la dissolució.<br>
               c) El percentatge en massa ($\% \text{ m/m}$) de $\text{NaCl}$.
             </p>
-            
             <button onclick="toggleSolution('sol-reforc-1')" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition">
               <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-reforc-1"></i>
               <span>Mostra la resolució pas a pas</span>
             </button>
-
-            <!-- Solució desplegable -->
             <div id="sol-reforc-1" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
-              <p><strong>Pas 1: Massa molar del $\text{NaCl}$:</strong><br>
-                $$M_m(\text{NaCl}) = 23,0 + 35,5 = 58,5\text{ g/mol}$$
-              </p>
-              <p><strong>a) Concentració en massa ($C$ en g/L):</strong><br>
-                $$C = \frac{m_{\text{solut}}}{V_{\text{diss}}} = \frac{14,625\text{ g}}{0,500\text{ L}} = \mathbf{29,25\text{ g/L}}$$
-              </p>
-              <p><strong>b) Molaritat ($M$):</strong><br>
-                $$n_{\text{NaCl}} = \frac{14,625\text{ g}}{58,5\text{ g/mol}} = 0,25\text{ mol}$$
-                $$M = \frac{n}{V} = \frac{0,25\text{ mol}}{0,500\text{ L}} = \mathbf{0,50\text{ M (mol/L)}}$$
-              </p>
-              <p><strong>c) Percentatge en massa (% m/m):</strong><br>
-                La massa de la dissolució s'obté mitjançant la densitat:<br>
-                $$m_{\text{diss}} = V \cdot \rho = 500\text{ mL} \cdot 1,02\text{ g/mL} = 510\text{ g}$$
-                $$\% \text{ m/m} = \frac{m_{\text{solut}}}{m_{\text{diss}}} \cdot 100 = \frac{14,625\text{ g}}{510\text{ g}} \cdot 100 = \mathbf{2,87\%}$$
-              </p>
+              <p><strong>Pas 1: Massa molar del $\text{NaCl}$:</strong> $M_m(\text{NaCl}) = 23,0 + 35,5 = 58,5\text{ g/mol}$.</p>
+              <p><strong>a) Concentració en massa ($C$ en g/L):</strong><br>$$C = \frac{m_{\text{solut}}}{V_{\text{diss}}} = \frac{14,625\text{ g}}{0,500\text{ L}} = \mathbf{29,25\text{ g/L}}$$</p>
+              <p><strong>b) Molaritat ($M$):</strong><br>$$n_{\text{NaCl}} = \frac{14,625\text{ g}}{58,5\text{ g/mol}} = 0,250\text{ mol} \implies M = \frac{0,250\text{ mol}}{0,500\text{ L}} = \mathbf{0,500\text{ M}}$$</p>
+              <p><strong>c) Percentatge en massa (% m/m):</strong><br>Massa de la dissolució: $m_{\text{diss}} = V \cdot \rho = 500\text{ mL} \cdot 1,02\text{ g/mL} = 510\text{ g}$.<br>$$\% \text{ m/m} = \frac{14,625\text{ g}}{510\text{ g}} \cdot 100 = \mathbf{2,87\%}$$</p>
             </div>
           </div>
 
-          <!-- ACTIVITAT DE REFORÇ 2 -->
+          <!-- ================= REFORÇ 2 ================= -->
           <div class="activity-card reforc bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-emerald-200/70 hover:border-emerald-300 transition">
             <div class="flex items-center justify-between gap-2 mb-3">
               <div class="flex items-center gap-2">
@@ -783,26 +964,21 @@
               Preparació d'una dissolució diluïda d'Àcid Clorhídric
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed mb-4">
-              Es vol preparar al laboratori exactament $250\text{ mL}$ d'una dissolució aquosa d'$\text{HCl}\ 0,20\text{ M}$. Al magatzem disposem d'una ampolla comercial de solució concentrada d'$\text{HCl}$ amb una concentració de $4,0\text{ M}$.<br>
+              Es vol preparar al laboratori exactament $250\text{ mL}$ d'una dissolució aquosa d'$\text{HCl}\ 0,20\text{ M}$. Al magatzem disposem d'una ampolla comercial de solució concentrada d'$\text{HCl}$ de concentració $4,0\text{ M}$.<br>
               <strong>Calcula:</strong> Quin volum de la dissolució concentrada d'$\text{HCl}$ s'haurà de pipetejar i quin volum d'aigua aproximat s'afegirà?
             </p>
-            
             <button onclick="toggleSolution('sol-reforc-2')" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition">
               <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-reforc-2"></i>
               <span>Mostra la resolució pas a pas</span>
             </button>
-
             <div id="sol-reforc-2" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
-              <p><strong>Principi de conservació del solut:</strong> Els mols d'$\text{HCl}$ continguts en el volum concentrat inicial han de ser iguals als mols de la dissolució final diluïda:</p>
-              <p class="font-mono text-center text-sm py-1">$$M_1 \cdot V_1 = M_2 \cdot V_2$$</p>
-              <p>Substituint amb les dades ($M_1 = 4,0\text{ M}$, $M_2 = 0,20\text{ M}$, $V_2 = 250\text{ mL}$):</p>
-              <p>$$4,0\text{ M} \cdot V_1 = 0,20\text{ M} \cdot 250\text{ mL}$$</p>
-              <p>$$V_1 = \frac{0,20 \cdot 250}{4,0} = \mathbf{12,5\text{ mL}}$$</p>
-              <p><strong>Procediment de laboratori:</strong> Es pipetegen $12,5\text{ mL}$ d'$\text{HCl}$ de l'ampolla de $4,0\text{ M}$ (afegint l'àcid sobre una mica d'aigua prèvia en un matràs aforat per seguretat) i s'enrasa amb aigua destil·lada fins a la línia dels $250\text{ mL}$ (aproximadament s'afegeixen $250 - 12,5 = 237,5\text{ mL}$ d'aigua).</p>
+              <p><strong>Principi de conservació del solut:</strong> $M_1 \cdot V_1 = M_2 \cdot V_2$.</p>
+              <p>$$4,0\text{ M} \cdot V_1 = 0,20\text{ M} \cdot 250\text{ mL} \implies V_1 = \frac{0,20 \cdot 250}{4,0} = \mathbf{12,5\text{ mL}}$$</p>
+              <p><strong>Procediment de laboratori:</strong> Es pipetegen $12,5\text{ mL}$ d'$\text{HCl}\ 4,0\text{ M}$ i s'enrasa amb aigua destil·lada en un matràs aforat de $250\text{ mL}$ (aproximadament $250 - 12,5 = 237,5\text{ mL}$ d'aigua afegida).</p>
             </div>
           </div>
 
-          <!-- ACTIVITAT DE REFORÇ 3 -->
+          <!-- ================= REFORÇ 3 ================= -->
           <div class="activity-card reforc bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-emerald-200/70 hover:border-emerald-300 transition">
             <div class="flex items-center justify-between gap-2 mb-3">
               <div class="flex items-center gap-2">
@@ -815,33 +991,150 @@
               Descens crioscòpic: Glucosa vs Clorur de Calci
             </h4>
             <p class="text-sm text-slate-700 leading-relaxed mb-4">
-              Es preparen dues dissolucions aquoses separades, ambdues amb una molalitat $m = 0,50\text{ mol/kg}$:<br>
+              Es preparen dues dissolucions aquoses separades, ambdues de molalitat $m = 0,50\text{ mol/kg}$:<br>
               - Dissolució A: Glucosa ($\text{C}_6\text{H}_{12}\text{O}_6$, no electròlit).<br>
               - Dissolució B: Clorur de calci ($\text{CaCl}_2$, electròlit fort que es dissocia completament).<br>
               <strong>Dada:</strong> Constant crioscòpica de l'aigua: $K_c = 1,86\ ^\circ\text{C}\cdot\text{kg}\cdot\text{mol}^{-1}$.<br>
               <strong>Calcula:</strong> A quina temperatura congelarà cadascuna d'aquestes dues dissolucions? Justifica la diferència.
             </p>
-            
             <button onclick="toggleSolution('sol-reforc-3')" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition">
               <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-reforc-3"></i>
               <span>Mostra la resolució pas a pas</span>
             </button>
-
             <div id="sol-reforc-3" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
-              <p><strong>Fórmula general del descens crioscòpic:</strong> $\Delta T_c = K_c \cdot m \cdot i$. El punt de congelació pur de l'aigua és $T_c^\circ = 0^\circ\text{C}$, per tant $T_{\text{congelació}} = 0 - \Delta T_c$.</p>
-              <p><strong>1. Dissolució A (Glucosa):</strong><br>
-                És un solut molecular que no s'ionitza, per la qual cosa el factor de van 't Hoff és $i = 1$.<br>
-                $$\Delta T_c = 1,86 \cdot 0,50 \cdot 1 = 0,93^\circ\text{C} \implies T_{\text{cong}} = \mathbf{-0,93^\circ\text{C}}$$
-              </p>
-              <p><strong>2. Dissolució B ($\text{CaCl}_2$):</strong><br>
-                Es dissocia en tres ions: $\text{CaCl}_2 \to \text{Ca}^{2+} + 2\text{Cl}^-$, per la qual cosa $\nu = 3$ i $i = 3$.<br>
-                $$\Delta T_c = 1,86 \cdot 0,50 \cdot 3 = 2,79^\circ\text{C} \implies T_{\text{cong}} = \mathbf{-2,79^\circ\text{C}}$$
-              </p>
-              <p><strong>Conclusió conceptual:</strong> Tot i tenir la mateixa molalitat, la dissolució de $\text{CaCl}_2$ produeix el triple de partícules lliures per kg d'aigua que la glucosa, provocant un descens crioscòpic tres vegades superior.</p>
+              <p><strong>Fórmula del descens crioscòpic:</strong> $\Delta T_c = K_c \cdot m \cdot i \implies T_{\text{cong}} = 0 - \Delta T_c$.</p>
+              <p><strong>1. Glucosa ($i = 1$):</strong><br>$$\Delta T_c = 1,86 \cdot 0,50 \cdot 1 = 0,93^\circ\text{C} \implies T_{\text{cong}} = \mathbf{-0,93^\circ\text{C}}$$</p>
+              <p><strong>2. Clorur de calci ($\text{CaCl}_2 \to \text{Ca}^{2+} + 2\text{Cl}^- \implies i = 3$):</strong><br>$$\Delta T_c = 1,86 \cdot 0,50 \cdot 3 = 2,79^\circ\text{C} \implies T_{\text{cong}} = \mathbf{-2,79^\circ\text{C}}$$</p>
+              <p><strong>Justificació:</strong> El $\text{CaCl}_2$ aporta 3 mols de partícules iòniques per cada mol de compost, triplicant l'efecte col·ligatiu respecte a un compost molecular.</p>
             </div>
           </div>
 
-          <!-- ACTIVITAT D'AMPLIACIÓ 1 -->
+          <!-- ================= REFORÇ 4 (NOU) ================= -->
+          <div class="activity-card reforc bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-emerald-200/70 hover:border-emerald-300 transition">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-bold text-xs">REFORÇ 4</span>
+                <span class="text-xs font-medium text-slate-500">Corbes de solubilitat i cristal·lització (McGraw-Hill)</span>
+              </div>
+              <span class="text-xs text-slate-400 font-mono">Nivell: Mitjà</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">
+              Cristal·lització per refredament de Nitrat de Potassi
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              La solubilitat del nitrat de potassi ($\text{KNO}_3$) en aigua és de $110\text{ g}/100\text{ g d'aigua}$ a $60^\circ\text{C}$ i de $32\text{ g}/100\text{ g d'aigua}$ a $20^\circ\text{C}$.<br>
+              Es preparen $420\text{ g}$ d'una dissolució saturada de $\text{KNO}_3$ a $60^\circ\text{C}$ i, posteriorment, es refreda lentament fins a $20^\circ\text{C}$.<br>
+              <strong>Calcula:</strong><br>
+              a) Quants grams de $\text{KNO}_3$ pur i quants grams d'aigua contenia inicialment la dissolució a $60^\circ\text{C}$?<br>
+              b) Quina massa de $\text{KNO}_3$ sòlid cristal·litzarà i precipitarà en refredar a $20^\circ\text{C}$?
+            </p>
+            <button onclick="toggleSolution('sol-reforc-4')" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-reforc-4"></i>
+              <span>Mostra la resolució pas a pas</span>
+            </button>
+            <div id="sol-reforc-4" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
+              <p><strong>a) Massa inicial de solut i solvent a $60^\circ\text{C}$:</strong><br>
+                A $60^\circ\text{C}$, $110\text{ g}$ de $\text{KNO}_3$ es dissolen en $100\text{ g}$ d'aigua, donant $110 + 100 = 210\text{ g}$ de dissolució saturada.<br>
+                Proporció de solut per regla de tres o factor de conversió:<br>
+                $$m_{\text{solut}} = 420\text{ g diss} \times \frac{110\text{ g KNO}_3}{210\text{ g diss}} = \mathbf{220\text{ g de KNO}_3}$$
+                $$m_{\text{aigua}} = 420\text{ g} - 220\text{ g} = \mathbf{200\text{ g d'aigua}}$$
+              </p>
+              <p><strong>b) Massa de solut que precipita a $20^\circ\text{C}$:</strong><br>
+                A $20^\circ\text{C}$, la solubilitat és de $32\text{ g}/100\text{ g d'aigua}$. Per als nostres $200\text{ g}$ d'aigua:<br>
+                $$m_{\text{solut que queda dissolt}} = 200\text{ g d'aigua} \times \frac{32\text{ g KNO}_3}{100\text{ g d'aigua}} = 64\text{ g de KNO}_3$$
+                Massa que cristal·litza al fons del vas:<br>
+                $$m_{\text{precipitat}} = 220\text{ g} - 64\text{ g} = \mathbf{156\text{ g de KNO}_3\text{ precipitat}}$$
+              </p>
+            </div>
+          </div>
+
+          <!-- ================= REFORÇ 5 (NOU) ================= -->
+          <div class="activity-card reforc bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-emerald-200/70 hover:border-emerald-300 transition">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-bold text-xs">REFORÇ 5</span>
+                <span class="text-xs font-medium text-slate-500">Conversió integral d'unitats</span>
+              </div>
+              <span class="text-xs text-slate-400 font-mono">Nivell: Mitjà</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">
+              Anàlisi d'un Àcid Nítric comercial
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              Una ampolla de laboratori d'àcid nítric ($\text{HNO}_3$) comercial indica a la seva etiqueta una riquesa del $65,0\% \text{ en massa}$ i una densitat de $1,40\text{ g/mL}$.<br>
+              <strong>Dades:</strong> Masses atòmiques: $\text{H} = 1,0\text{ u}$, $\text{N} = 14,0\text{ u}$, $\text{O} = 16,0\text{ u}$.<br>
+              <strong>Calcula:</strong><br>
+              a) La concentració en $\text{g/L}$ i la molaritat ($M$) de l'àcid comercial.<br>
+              b) La molalitat ($m$) de la dissolució.<br>
+              c) La fracció molar de l'$\text{HNO}_3$ ($\chi_{\text{HNO}_3}$).
+            </p>
+            <button onclick="toggleSolution('sol-reforc-5')" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-reforc-5"></i>
+              <span>Mostra la resolució pas a pas</span>
+            </button>
+            <div id="sol-reforc-5" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
+              <p><strong>Massa molar:</strong> $M_m(\text{HNO}_3) = 1,0 + 14,0 + 3(16,0) = 63,0\text{ g/mol}$.</p>
+              <p>Prenem com a base de càlcul $1\text{ L}$ ($1000\text{ mL}$) de dissolució:<br>
+                Massa de $1\text{ L}$: $m_{\text{diss}} = 1000\text{ mL} \times 1,40\text{ g/mL} = 1400\text{ g}$.<br>
+                Massa de solut pur: $m_{\text{HNO}_3} = 1400\text{ g} \times 0,65 = \mathbf{910\text{ g}}$.
+              </p>
+              <p><strong>a) Concentració en g/L i Molaritat ($M$):</strong><br>
+                $$C = \frac{910\text{ g}}{1\text{ L}} = \mathbf{910\text{ g/L}}$$
+                $$n = \frac{910\text{ g}}{63,0\text{ g/mol}} = 14,44\text{ mol} \implies M = \frac{14,44\text{ mol}}{1\text{ L}} = \mathbf{14,44\text{ M}}$$
+              </p>
+              <p><strong>b) Molalitat ($m$):</strong><br>
+                Massa d'aigua solvent en $1\text{ L}$: $m_{\text{aigua}} = 1400\text{ g} - 910\text{ g} = 490\text{ g} = 0,490\text{ kg}$.<br>
+                $$m = \frac{14,44\text{ mol}}{0,490\text{ kg}} = \mathbf{29,47\text{ mol/kg (m)}}$$
+              </p>
+              <p><strong>c) Fracció molar ($\chi_{\text{HNO}_3}$):</strong><br>
+                Mols d'aigua: $n_{\text{aigua}} = \frac{490\text{ g}}{18,0\text{ g/mol}} = 27,22\text{ mol}$.<br>
+                $$\chi_{\text{HNO}_3} = \frac{14,44}{14,44 + 27,22} = \frac{14,44}{41,66} = \mathbf{0,347}$$
+              </p>
+            </div>
+          </div>
+
+          <!-- ================= REFORÇ 6 (NOU) ================= -->
+          <div class="activity-card reforc bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-emerald-200/70 hover:border-emerald-300 transition">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 font-bold text-xs">REFORÇ 6</span>
+                <span class="text-xs font-medium text-slate-500">Llei de Raoult (Pressió de vapor)</span>
+              </div>
+              <span class="text-xs text-slate-400 font-mono">Nivell: Mitjà</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">
+              Descens de la pressió de vapor per addició de Sacarosa
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              Es dissolen $68,4\text{ g}$ de sacarosa ($\text{C}_{12}\text{H}_{22}\text{O}_{11}$, $M_m = 342,3\text{ g/mol}$) en $400\text{ g}$ d'aigua pura a una temperatura de $25,0^\circ\text{C}$. A aquesta temperatura, la pressió de vapor de l'aigua pura és de $23,76\text{ mmHg}$.<br>
+              <strong>Calcula:</strong><br>
+              a) La fracció molar de la sacarosa i de l'aigua a la dissolució.<br>
+              b) La pressió de vapor de la dissolució resultant.<br>
+              c) El descens relatiu de la pressió de vapor ($\Delta P / P^\circ$).
+            </p>
+            <button onclick="toggleSolution('sol-reforc-6')" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg border border-emerald-200 transition">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-reforc-6"></i>
+              <span>Mostra la resolució pas a pas</span>
+            </button>
+            <div id="sol-reforc-6" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
+              <p><strong>a) Càlcul de mols i fraccions molars:</strong><br>
+                $$n_{\text{sacarosa}} = \frac{68,4\text{ g}}{342,3\text{ g/mol}} = 0,200\text{ mol}$$
+                $$n_{\text{aigua}} = \frac{400\text{ g}}{18,02\text{ g/mol}} = 22,20\text{ mol}$$
+                $$n_{\text{total}} = 0,200 + 22,20 = 22,40\text{ mol}$$
+                $$\chi_{\text{sacarosa}} = \frac{0,200}{22,40} = \mathbf{0,00893}$$
+                $$\chi_{\text{aigua}} = 1 - 0,00893 = \mathbf{0,99107}$$
+              </p>
+              <p><strong>b) Pressió de vapor de la dissolució (Llei de Raoult):</strong><br>
+                $$P = P^\circ \cdot \chi_{\text{aigua}} = 23,76\text{ mmHg} \cdot 0,99107 = \mathbf{23,55\text{ mmHg}}$$
+              </p>
+              <p><strong>c) Descens de pressió de vapor:</strong><br>
+                $$\Delta P = P^\circ - P = 23,76 - 23,55 = \mathbf{0,21\text{ mmHg}}$$
+                $$\frac{\Delta P}{P^\circ} = \chi_{\text{sacarosa}} = \mathbf{0,00893 \quad (0,89\%)}$$
+              </p>
+            </div>
+          </div>
+
+          <!-- ================= AMPLIACIÓ 1 ================= -->
           <div class="activity-card ampliacio bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-indigo-200/70 hover:border-indigo-300 transition">
             <div class="flex items-center justify-between gap-2 mb-3">
               <div class="flex items-center gap-2">
@@ -861,41 +1154,31 @@
               b) El volum real de la dissolució final obtinguda (tingues en compte la densitat final).<br>
               c) La Molaritat ($M$) i la fracció molar ($\chi$) d'$\text{H}_2\text{SO}_4$ a la mescla final.
             </p>
-            
             <button onclick="toggleSolution('sol-ampliacio-1')" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg border border-indigo-200 transition">
               <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-ampliacio-1"></i>
               <span>Mostra la resolució pas a pas</span>
             </button>
-
             <div id="sol-ampliacio-1" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
-              <p><strong>Massa molar:</strong> $M_m(\text{H}_2\text{SO}_4) = 2(1,0) + 32,1 + 4(16,0) = 98,1\text{ g/mol}$.</p>
-              
+              <p><strong>Massa molar:</strong> $M_m(\text{H}_2\text{SO}_4) = 98,1\text{ g/mol}$.</p>
               <p><strong>a) Mols de cada dissolució:</strong><br>
-                - <em>Dissolució 1:</em><br>
-                $$m_{\text{diss,1}} = V_1 \cdot \rho_1 = 200\text{ mL} \cdot 1,84\text{ g/mL} = 368\text{ g}$$
-                $$m_{\text{H}_2\text{SO}_4,1} = 368\text{ g} \cdot 0,96 = 353,28\text{ g}$$
-                $$n_1 = \frac{353,28\text{ g}}{98,1\text{ g/mol}} = \mathbf{3,601\text{ mol}}$$
-                - <em>Dissolució 2:</em><br>
-                $$n_2 = M_2 \cdot V_2 = 2,50\text{ mol/L} \cdot 0,300\text{ L} = \mathbf{0,750\text{ mol}}$$
-                Total de mols de solut: $n_{\text{total}} = 3,601 + 0,750 = \mathbf{4,351\text{ mol}}$ ($m_{\text{solut, total}} = 4,351 \cdot 98,1 = 426,83\text{ g}$).
+                - Dissolució 1: $m_{\text{diss,1}} = 200\text{ mL} \times 1,84 = 368\text{ g}$. $m_{\text{solut}} = 368 \times 0,96 = 353,28\text{ g} \implies n_1 = \frac{353,28}{98,1} = \mathbf{3,601\text{ mol}}$.<br>
+                - Dissolució 2: $n_2 = 2,50\text{ M} \times 0,300\text{ L} = \mathbf{0,750\text{ mol}}$.<br>
+                Mols totals de solut: $n_{\text{total}} = 3,601 + 0,750 = \mathbf{4,351\text{ mol}}$. Massa total de solut: $4,351 \times 98,1 = 426,83\text{ g}$.
               </p>
-
               <p><strong>b) Massa total i volum final:</strong><br>
-                Massa de la dissolució 2: La massa d'$\text{H}_2\text{SO}_4$ a la dissolució 2 és $73,58\text{ g}$. Amb una densitat típica de la solució $2,5\text{ M}$ d'aprox. $1,15\text{ g/mL}$, la massa total és $m_1 + m_2 \approx 368 + (300 \cdot 1,15) = 713\text{ g}$.<br>
-                Volum final amb la densitat experimental $\rho_f = 1,28\text{ g/mL}$:<br>
-                $$V_f = \frac{m_{\text{total}}}{\rho_f} = \frac{713\text{ g}}{1,28\text{ g/mL}} = 557\text{ mL} = \mathbf{0,557\text{ L}}$$
+                Massa solució 2 (amb $\rho_2 \approx 1,15\text{ g/mL}$): $300 \times 1,15 = 345\text{ g}$. Massa total: $368 + 345 = 713\text{ g}$.<br>
+                Volum final mitjançant $\rho_f = 1,28\text{ g/mL}$:<br>
+                $$V_f = \frac{713\text{ g}}{1,28\text{ g/mL}} = 557\text{ mL} = \mathbf{0,557\text{ L}}$$
               </p>
-
-              <p><strong>c) Molaritat i Fracció Molar final:</strong><br>
-                $$M_f = \frac{n_{\text{total}}}{V_f} = \frac{4,351\text{ mol}}{0,557\text{ L}} = \mathbf{7,81\text{ M}}$$
-                Massa d'aigua: $m_{\text{aigua}} = 713\text{ g} - 426,83\text{ g} = 286,17\text{ g}$.<br>
-                Mols d'aigua: $n_{\text{aigua}} = \frac{286,17}{18,0} = 15,90\text{ mol}$.<br>
+              <p><strong>c) Molaritat i Fracció Molar finals:</strong><br>
+                $$M_f = \frac{4,351\text{ mol}}{0,557\text{ L}} = \mathbf{7,81\text{ M}}$$
+                $$m_{\text{aigua}} = 713 - 426,83 = 286,17\text{ g} \implies n_{\text{aigua}} = \frac{286,17}{18,0} = 15,90\text{ mol}$$
                 $$\chi_{\text{H}_2\text{SO}_4} = \frac{4,351}{4,351 + 15,90} = \mathbf{0,215}$$
               </p>
             </div>
           </div>
 
-          <!-- ACTIVITAT D'AMPLIACIÓ 2 -->
+          <!-- ================= AMPLIACIÓ 2 ================= -->
           <div class="activity-card ampliacio bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-indigo-200/70 hover:border-indigo-300 transition">
             <div class="flex items-center justify-between gap-2 mb-3">
               <div class="flex items-center gap-2">
@@ -915,26 +1198,154 @@
               b) La massa molecular relativa ($M_r$) de la proteïna.<br>
               c) Raona per què la pressió osmòtica és l'única propietat col·ligativa útil per mesurar biomolècules (en comparació amb el descens crioscòpic).
             </p>
-            
             <button onclick="toggleSolution('sol-ampliacio-2')" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg border border-indigo-200 transition">
               <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-ampliacio-2"></i>
               <span>Mostra la resolució pas a pas</span>
             </button>
-
             <div id="sol-ampliacio-2" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
-              <p><strong>a) Càlcul de la Molaritat a partir de la Llei de van 't Hoff:</strong><br>
-                Temperatura absoluta: $T = 25,0 + 273,15 = 298,15\text{ K}$.<br>
-                $$\Pi = M \cdot R \cdot T \implies M = \frac{\Pi}{R \cdot T}$$
-                $$M = \frac{0,00325\text{ atm}}{0,082\text{ atm L / mol K} \cdot 298,15\text{ K}} = \mathbf{1,329 \times 10^{-4}\text{ mol/L}}$$
+              <p><strong>a) Molaritat mitjançant la llei de van 't Hoff:</strong><br>
+                $T = 25,0 + 273,15 = 298,15\text{ K}$.<br>
+                $$\Pi = M \cdot R \cdot T \implies M = \frac{\Pi}{R \cdot T} = \frac{0,00325}{0,082 \cdot 298,15} = \mathbf{1,329 \times 10^{-4}\text{ mol/L}}$$
               </p>
               <p><strong>b) Massa molecular ($M_m$):</strong><br>
-                Mols continguts en $100\text{ mL}$ ($0,100\text{ L}$):<br>
-                $$n = M \cdot V = 1,329 \times 10^{-4}\text{ mol/L} \cdot 0,100\text{ L} = 1,329 \times 10^{-5}\text{ mol}$$
-                $$M_m = \frac{m_{\text{proteïna}}}{n} = \frac{0,825\text{ g}}{1,329 \times 10^{-5}\text{ mol}} = \mathbf{62.077\text{ g/mol}}$$
-                La massa molecular relativa és d'aproximadament $62,1\text{ kDa}$ (quilodaltons).
+                Mols en $100\text{ mL}$ ($0,100\text{ L}$): $n = 1,329 \times 10^{-4} \cdot 0,100 = 1,329 \times 10^{-5}\text{ mol}$.<br>
+                $$M_m = \frac{m_{\text{proteïna}}}{n} = \frac{0,825\text{ g}}{1,329 \times 10^{-5}\text{ mol}} = \mathbf{62.077\text{ g/mol}} \approx \mathbf{62,1\text{ kDa}}$$
               </p>
-              <p><strong>c) Justificació bioquímica:</strong><br>
-                Les macromolècules tenen masses molars molt elevades, de manera que quantitats típiques de mostra produeixen molalitats extraordinàriament baixes (de l'ordre de $10^{-4}\text{ m}$). En crioscòpia, això produiria un descens de temperatura de tan sols $\Delta T_c = 1,86 \cdot 10^{-4} \approx 0,0002^\circ\text{C}$, impossible de mesurar sense aparells molt cars. En canvi, la pressió osmòtica produeix una pressió mesurable de diversos mil·límetres de columna de líquid a temperatura ambient, sense desnaturalitzar les proteïnes.
+              <p><strong>c) Justificació:</strong> Donada l'alta massa molar, la molalitat és tan minúscula ($10^{-4}\text{ m}$) que el descens crioscòpic seria imperceptible ($\Delta T_c \approx 0,0002^\circ\text{C}$). En canvi, la pressió osmòtica produeix una pressió fàcilment mesurable ($2,47\text{ mmHg} = 33,6\text{ mm}$ de columna d'aigua) sense malmetre la mostra.</p>
+            </div>
+          </div>
+
+          <!-- ================= AMPLIACIÓ 3 (NOU) ================= -->
+          <div class="activity-card ampliacio bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-indigo-200/70 hover:border-indigo-300 transition">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-800 font-bold text-xs">AMPLIACIÓ 3</span>
+                <span class="text-xs font-medium text-slate-500">Crioscòpia i grau de dissociació d'electròlits febles</span>
+              </div>
+              <span class="text-xs text-indigo-600 font-mono font-bold">Nivell: Avançat (Olimpíada)</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">
+              Grau d'ionització de l'Àcid Benzoic en aigua
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              Es prepara una dissolució aquosa d'àcid benzoic ($\text{C}_6\text{H}_5\text{COOH}$) de molalitat $m = 0,150\text{ mol/kg}$. Es mesura experimentalment el seu punt de congelació i s'obté $T_{\text{cong}} = -0,298^\circ\text{C}$.<br>
+              L'àcid benzoic és un electròlit feble que es dissocia segons: $\text{C}_6\text{H}_5\text{COOH} \rightleftharpoons \text{C}_6\text{H}_5\text{COO}^- + \text{H}^+$.<br>
+              <strong>Dada:</strong> Constant crioscòpica de l'aigua: $K_c = 1,86\ ^\circ\text{C}\cdot\text{kg}\cdot\text{mol}^{-1}$.<br>
+              <strong>Calcula:</strong><br>
+              a) El descens crioscòpic experimental ($\Delta T_c$) i el factor de van 't Hoff ($i$) de la solució.<br>
+              b) El grau de dissociació ($\alpha$) de l'àcid benzoic i el percentatge ionitzat a aquesta concentració.<br>
+              c) Quina hauria estat la temperatura de congelació si l'àcid benzoic no s'hagués dissociat gens?
+            </p>
+            <button onclick="toggleSolution('sol-ampliacio-3')" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg border border-indigo-200 transition">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-ampliacio-3"></i>
+              <span>Mostra la resolució pas a pas</span>
+            </button>
+            <div id="sol-ampliacio-3" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
+              <p><strong>a) Descens crioscòpic i factor $i$:</strong><br>
+                $$\Delta T_c = 0^\circ\text{C} - (-0,298^\circ\text{C}) = 0,298^\circ\text{C}$$
+                De la fórmula $\Delta T_c = K_c \cdot m \cdot i$ deduïm:<br>
+                $$i = \frac{\Delta T_c}{K_c \cdot m} = \frac{0,298^\circ\text{C}}{1,86 \cdot 0,150} = \frac{0,298}{0,279} = \mathbf{1,068}$$
+              </p>
+              <p><strong>b) Grau de dissociació ($\alpha$):</strong><br>
+                Com que es dissocia en dos ions ($\text{C}_6\text{H}_5\text{COO}^-$ i $\text{H}^+$), tenim $\nu = 2$.<br>
+                La relació entre $i$ i $\alpha$ és: $i = 1 + \alpha(\nu - 1) = 1 + \alpha(2 - 1) = 1 + \alpha$.<br>
+                $$\alpha = i - 1 = 1,068 - 1 = \mathbf{0,068} \quad (\mathbf{6,8\% \text{ ionitzat}})$$
+              </p>
+              <p><strong>c) Si no es dissociés ($i = 1$):</strong><br>
+                $$\Delta T_c = 1,86 \cdot 0,150 \cdot 1 = 0,279^\circ\text{C} \implies T_{\text{cong}} = \mathbf{-0,279^\circ\text{C}}$$
+              </p>
+            </div>
+          </div>
+
+          <!-- ================= AMPLIACIÓ 4 (NOU) ================= -->
+          <div class="activity-card ampliacio bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-indigo-200/70 hover:border-indigo-300 transition">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-800 font-bold text-xs">AMPLIACIÓ 4</span>
+                <span class="text-xs font-medium text-slate-500">Llei d'Henry i solubilitat de gasos</span>
+              </div>
+              <span class="text-xs text-indigo-600 font-mono font-bold">Nivell: Avançat (Biofísica)</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">
+              Solubilitat de l'Oxigen a nivell del mar i a gran profunditat
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              La constant de la llei d'Henry per a l'oxigen molecular ($\text{O}_2$) en aigua a $20,0^\circ\text{C}$ és $k_H = 1,38 \times 10^{-3}\text{ mol}\cdot\text{L}^{-1}\cdot\text{atm}^{-1}$.<br>
+              L'aire conté un $21,0\%$ en volum d'$\text{O}_2$. A nivell del mar, la pressió atmosfèrica total és d'$1,00\text{ atm}$.<br>
+              <strong>Dada:</strong> Massa molecular de l'$\text{O}_2 = 32,0\text{ g/mol}$.<br>
+              <strong>Calcula:</strong><br>
+              a) La pressió parcial de l'$\text{O}_2$ a l'aire a nivell del mar.<br>
+              b) La concentració d'$\text{O}_2$ dissolt en un aquari oestil·lat a $20^\circ\text{C}$ en $\text{mol/L}$ i en $\text{mg/L}$ ($\text{ppm}$).<br>
+              c) Si un bussejador respira aire a $30\text{ m}$ de profunditat (on la pressió absoluta és de $4,00\text{ atm}$), quina serà la concentració d'$\text{O}_2$ dissolt en l'aigua/plasma en equilibri?
+            </p>
+            <button onclick="toggleSolution('sol-ampliacio-4')" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg border border-indigo-200 transition">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-ampliacio-4"></i>
+              <span>Mostra la resolució pas a pas</span>
+            </button>
+            <div id="sol-ampliacio-4" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
+              <p><strong>a) Pressió parcial d'$\text{O}_2$ a nivell del mar (Llei de Dalton):</strong><br>
+                $$P_{\text{O}_2} = P_{\text{total}} \cdot \chi_{\text{O}_2} = 1,00\text{ atm} \cdot 0,210 = \mathbf{0,210\text{ atm}}$$
+              </p>
+              <p><strong>b) Concentració en mol/L i mg/L a nivell del mar (Llei d'Henry):</strong><br>
+                $$C_{\text{O}_2} = k_H \cdot P_{\text{O}_2} = (1,38 \times 10^{-3}\text{ mol/L}\cdot\text{atm}) \cdot 0,210\text{ atm} = \mathbf{2,90 \times 10^{-4}\text{ mol/L}}$$
+                En massa ($\text{mg/L}$):<br>
+                $$C = 2,90 \times 10^{-4}\text{ mol/L} \times 32.000\text{ mg/mol} = \mathbf{9,27\text{ mg/L (ppm)}}$$
+                <em>Anotació biològica:</em> Aquesta concentració de $\approx 9\text{ mg/L}$ és vital perquè els organismes aquàtics puguin respirar.
+              </p>
+              <p><strong>c) A 30 metres de profunditat ($P_{\text{total}} = 4,00\text{ atm}$):</strong><br>
+                $$P_{\text{O}_2} = 4,00\text{ atm} \cdot 0,210 = 0,840\text{ atm}$$
+                $$C_{\text{O}_2} = 1,38 \times 10^{-3} \cdot 0,840 = \mathbf{1,16 \times 10^{-3}\text{ mol/L}} \implies \mathbf{37,1\text{ mg/L}}$$
+                La quantitat de gas dissolt es quadruplica per efecte de la pressió hidrostàtica.
+              </p>
+            </div>
+          </div>
+
+          <!-- ================= AMPLIACIÓ 5 (NOU) ================= -->
+          <div class="activity-card ampliacio bg-slate-50/50 rounded-xl p-5 sm:p-6 border border-indigo-200/70 hover:border-indigo-300 transition">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-indigo-100 text-indigo-800 font-bold text-xs">AMPLIACIÓ 5</span>
+                <span class="text-xs font-medium text-slate-500">Estequiometria i reaccions en dissolució</span>
+              </div>
+              <span class="text-xs text-indigo-600 font-mono font-bold">Nivell: Avançat (Química Quantitativa)</span>
+            </div>
+            <h4 class="font-bold text-slate-900 text-base mb-2">
+              Reacció de Precipitació de Sulfat de Bari
+            </h4>
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">
+              Al laboratori es barregen $200\text{ mL}$ d'una dissolució de clorur de bari ($\text{BaCl}_2$) de concentració $0,250\text{ M}$ amb $300\text{ mL}$ d'una dissolució de sulfat de sodi ($\text{Na}_2\text{SO}_4$) de concentració $0,200\text{ M}$.<br>
+              Es produeix una reacció de precipitació irreversible:<br>
+              $$\text{BaCl}_2\text{ (aq)} + \text{Na}_2\text{SO}_4\text{ (aq)} \longrightarrow \text{BaSO}_4\text{ (s)} \downarrow + 2\text{ NaCl (aq)}$$
+              <strong>Dades:</strong> Masses atòmiques: $\text{Ba} = 137,3\text{ u}$, $\text{S} = 32,1\text{ u}$, $\text{O} = 16,0\text{ u}$, $\text{Na} = 23,0\text{ u}$, $\text{Cl} = 35,5\text{ u}$. Assumim volums additius ($V_{\text{total}} = 500\text{ mL}$).<br>
+              <strong>Calcula:</strong><br>
+              a) Quin és el reactiu limitant i quin és el reactiu en excés?<br>
+              b) La massa de precipitat blanc de sulfat de bari ($\text{BaSO}_4$) que es dipositarà al fons del vas.<br>
+              c) La concentració molar ($M$) de cadascun dels ions presents a la solució final ($\text{Na}^+$, $\text{Cl}^-$, $\text{Ba}^{2+}$ i $\text{SO}_4^{2-}$).
+            </p>
+            <button onclick="toggleSolution('sol-ampliacio-5')" class="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-700 hover:text-indigo-800 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg border border-indigo-200 transition">
+              <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-sol-ampliacio-5"></i>
+              <span>Mostra la resolució pas a pas</span>
+            </button>
+            <div id="sol-ampliacio-5" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
+              <p><strong>a) Reactiu limitant:</strong><br>
+                Mols inicials de $\text{BaCl}_2$: $n(\text{BaCl}_2) = 0,250\text{ M} \times 0,200\text{ L} = \mathbf{0,0500\text{ mol}}$.<br>
+                Mols inicials de $\text{Na}_2\text{SO}_4$: $n(\text{Na}_2\text{SO}_4) = 0,200\text{ M} \times 0,300\text{ L} = \mathbf{0,0600\text{ mol}}$.<br>
+                La reacció és $1:1$. Com que $0,0500 < 0,0600$, el <strong>reactiu limitant és el $\text{BaCl}_2$</strong> i el <strong>reactiu en excés és el $\text{Na}_2\text{SO}_4$</strong> ($0,0600 - 0,0500 = 0,0100\text{ mol}$ sobrants).
+              </p>
+              <p><strong>b) Massa de precipitat $\text{BaSO}_4$:</strong><br>
+                $M_m(\text{BaSO}_4) = 137,3 + 32,1 + 4(16,0) = 233,4\text{ g/mol}$.<br>
+                Es formen $0,0500\text{ mol}$ de $\text{BaSO}_4$ sòlid:<br>
+                $$m = 0,0500\text{ mol} \times 233,4\text{ g/mol} = \mathbf{11,67\text{ g de BaSO}_4\text{ sòlid}}$$
+              </p>
+              <p><strong>c) Concentracions iòniques a la dissolució final ($V_f = 0,500\text{ L}$):</strong><br>
+                - Ions espectadors $\text{Cl}^-$: $n(\text{Cl}^-) = 2 \times n(\text{BaCl}_2) = 2(0,0500) = 0,100\text{ mol}$.<br>
+                $$[\text{Cl}^-] = \frac{0,100\text{ mol}}{0,500\text{ L}} = \mathbf{0,200\text{ M}}$$
+                - Ions espectadors $\text{Na}^+$: $n(\text{Na}^+) = 2 \times n(\text{Na}_2\text{SO}_4) = 2(0,0600) = 0,120\text{ mol}$.<br>
+                $$[\text{Na}^+] = \frac{0,120\text{ mol}}{0,500\text{ L}} = \mathbf{0,240\text{ M}}$$
+                - Ions $\text{SO}_4^{2-}$ en excés: $0,0100\text{ mol}$.<br>
+                $$[\text{SO}_4^{2-}] = \frac{0,0100\text{ mol}}{0,500\text{ L}} = \mathbf{0,0200\text{ M}}$$
+                - Ions $\text{Ba}^{2+}$: Com que és el reactiu limitant i el $\text{BaSO}_4$ és pràcticament insoluble:<br>
+                $$[\text{Ba}^{2+}] \approx \mathbf{0\text{ M}}$$
               </p>
             </div>
           </div>
@@ -1289,8 +1700,11 @@
             <option value="40.00">NaOH - Hidròxid de sodi (40,00 g/mol)</option>
             <option value="36.46">HCl - Àcid clorhídric (36,46 g/mol)</option>
             <option value="98.08">H₂SO₄ - Àcid sulfúric (98,08 g/mol)</option>
+            <option value="63.01">HNO₃ - Àcid nítric (63,01 g/mol)</option>
+            <option value="101.10">KNO₃ - Nitrat de potassi (101,10 g/mol)</option>
             <option value="249.68">CuSO₄ · 5H₂O - Sulfat de coure pentahidratat (249,68 g/mol)</option>
             <option value="180.16">C₆H₁₂O₆ - Glucosa (180,16 g/mol)</option>
+            <option value="342.30">C₁₂H₂₂O₁₁ - Sacarosa (342,30 g/mol)</option>
             <option value="custom">Altre compost (Personalitzat...)</option>
           </select>
         </div>
@@ -1385,7 +1799,7 @@
           </div>
           <div>
             <h5 class="text-white font-bold text-sm tracking-wide">AMPLIACIÓ DE QUÍMICA</h5>
-            <p class="text-slate-500 text-[11px]">Departament de Física i Química &bull; 1r de Batxillerat</p>
+            <p class="text-slate-500 text-[11px]">Departament de Física i Química &bull; 1r de Batxillerat (Programa McGraw-Hill)</p>
           </div>
         </div>
 
