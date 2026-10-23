@@ -13,12 +13,22 @@
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- KaTeX for crisp mathematical and chemical formulas -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <!-- MathJax 3: Renderització d'alta precisió per a fórmules químiques i matemàtiques -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
-  <!-- Tailwind CSS CDN for modern responsive UI styling -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -51,8 +61,77 @@
     }
   </script>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Estils integrats directament per assegurar compatibilitat 100% autònoma -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #1e293b;
+    }
+    mjx-container {
+      font-size: 105% !important;
+      outline: none;
+    }
+    mjx-container[jax="CHTML"][display="true"] {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.5rem 0;
+      margin: 0.5rem 0 !important;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleUp {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fade-in { animation: fadeIn 0.25s ease-out forwards; }
+    .animate-scale-up { animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .unit-tab.active {
+      background-color: #0284c7 !important;
+      color: #ffffff !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .subsection-btn.active {
+      background-color: #ffffff !important;
+      color: #0369a1 !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .act-filter-btn.active {
+      background-color: #ffffff !important;
+      color: #0f172a !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+    .scrollbar-none::-webkit-scrollbar { display: none; }
+    .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+    .activity-card { transition: all 0.2s ease-in-out; }
+    .activity-card:hover { transform: translateY(-1px); }
+
+    /* Estils d'impressió */
+    @media print {
+      header, footer, nav, #calculatorModal, #upcomingModal, .print\:hidden,
+      .unit-tab, .subsection-btn, .act-filter-btn, button {
+        display: none !important;
+      }
+      body { background-color: #ffffff !important; color: #000000 !important; font-size: 11pt; }
+      .subcontent-pane { display: block !important; }
+      #sol-reforc-1, #sol-reforc-2, #sol-reforc-3, #sol-ampliacio-1, #sol-ampliacio-2 {
+        display: block !important;
+        border: 1px solid #cbd5e1 !important;
+        padding: 10px !important;
+        margin-top: 8px !important;
+        background-color: #f8fafc !important;
+      }
+      .printable-lab { page-break-before: always; border: 1px solid #000000 !important; box-shadow: none !important; }
+      .printable-lab:first-of-type { page-break-before: auto; }
+      article { page-break-inside: avoid; box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+    }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
 
@@ -77,28 +156,26 @@
 
         <!-- Botons auxiliars capçalera -->
         <div class="flex items-center space-x-3">
-          <a href="#calculadora" onclick="openCalculatorModal()" class="hidden md:inline-flex items-center gap-2 text-xs font-medium bg-sky-800/60 hover:bg-sky-700/80 text-sky-100 px-3 py-2 rounded-lg border border-sky-600/40 transition">
+          <button onclick="openCalculatorModal()" class="inline-flex items-center gap-2 text-xs font-medium bg-sky-800/60 hover:bg-sky-700/80 text-sky-100 px-3 py-2 rounded-lg border border-sky-600/40 transition">
             <i class="fa-solid fa-calculator text-sky-400"></i>
-            <span>Calculadora de Dissolucions</span>
-          </a>
+            <span class="hidden sm:inline">Calculadora de Dissolucions</span>
+            <span class="sm:hidden">Calculadora</span>
+          </button>
           <a href="https://github.com/ccarrascosa-aimerigues/AMPLIACIO-DE-QUIMICA" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white p-2 text-xl" title="Repositori a GitHub">
             <i class="fa-brands fa-github"></i>
           </a>
-          <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white p-2 text-xl">
-            <i class="fa-solid fa-bars"></i>
-          </button>
         </div>
 
       </div>
 
-      <!-- BARRA DE PESTANYES D'UNITATS DIDÀCTIQUES (Modular per anar afegint la resta) -->
+      <!-- BARRA DE PESTANYES D'UNITATS DIDÀCTIQUES -->
       <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-3 pt-1 scrollbar-none border-t border-slate-800/80 text-sm">
         <button onclick="navigateToUnit('dissolucions')" id="tab-unit-dissolucions" class="unit-tab active flex items-center gap-2 px-4 py-2 rounded-lg font-semibold whitespace-nowrap transition bg-sky-500 text-white shadow-sm">
           <i class="fa-solid fa-droplet text-xs"></i>
           <span>UD 1: Dissolucions</span>
         </button>
         
-        <!-- Unitats Futures (Marcadors de posició amb indicador 'Properament') -->
+        <!-- Unitats Futures -->
         <button onclick="showUpcomingModal('UD 2: Termoquímica')" class="unit-tab flex items-center gap-2 px-4 py-2 rounded-lg font-medium whitespace-nowrap transition text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
           <i class="fa-solid fa-fire-flame-curved text-xs text-slate-500"></i>
           <span>UD 2: Termoquímica</span>
@@ -132,8 +209,8 @@
     </div>
   </header>
 
-  <!-- SELECCIÓ SUB-SECCIONS DE LA UNITAT DISSOLUCIONS -->
-  <section class="bg-white border-b border-slate-200 shadow-sm sticky top-28 sm:top-28 z-40">
+  <!-- BARRA DE SUB-PESTANYES DE LA UNITAT DISSOLUCIONS -->
+  <section class="bg-white border-b border-slate-200 shadow-sm sticky top-28 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-wrap items-center justify-between py-2 sm:py-3 gap-3">
         
@@ -174,7 +251,7 @@
     <!-- ================================================================= -->
     <!-- SECCIÓ 1: RESUM DE TEORIA                                         -->
     <!-- ================================================================= -->
-    <div id="section-teoria" class="subcontent-pane block space-y-12 animate-fade-in">
+    <div id="section-teoria" class="subcontent-pane space-y-12 animate-fade-in" style="display: block;">
 
       <!-- Hero Banner de la Unitat -->
       <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-sky-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-10 shadow-xl border border-sky-800/40">
@@ -262,7 +339,7 @@
                 <li>Atracció solut-dissolvent / solvatació ($\Delta H_3 < 0$, exotèrmic).</li>
               </ol>
               <p class="mt-2 text-xs font-mono text-indigo-700 bg-white p-2 rounded border border-indigo-100">
-                $\Delta H_{\text{diss}} = \Delta H_1 + \Delta H_2 + \Delta H_3$
+                $$\Delta H_{\text{diss}} = \Delta H_1 + \Delta H_2 + \Delta H_3$$
               </p>
             </div>
 
@@ -296,7 +373,6 @@
           </div>
         </div>
 
-        <!-- Taula interactiva de Fórmules de Concentració -->
         <h4 class="font-bold text-slate-900 text-base mb-4 flex items-center gap-2">
           <i class="fa-solid fa-square-root-variable text-indigo-600"></i> Formes d'expressar la concentració (Química 1r Batxillerat)
         </h4>
@@ -312,7 +388,7 @@
             <div class="py-2 text-center text-lg font-mono text-slate-900">
               $$M = \frac{n_{\text{solut}}}{V_{\text{dissolució}}\text{ (L)}} = \frac{m_{\text{s}}}{M_m \cdot V}$$
             </div>
-            <p class="text-xs text-slate-500 mt-2">Mols de solut per litre de dissolució final. Depèn de la temperatura pel canvi volumètric.</p>
+            <p class="text-xs text-slate-500 mt-2">Mols de solut per litre de dissolució final. Depèn de la temperatura pel canvi de volum.</p>
           </div>
 
           <!-- Molalitat -->
@@ -360,7 +436,7 @@
             <div class="py-2 text-center text-lg font-mono text-slate-900">
               $$C = \frac{m_{\text{solut}}\text{ (g)}}{V_{\text{dissolució}}\text{ (L)}}$$
             </div>
-            <p class="text-xs text-slate-500 mt-2">Grams de solut continguts en cada litre de dissolució. Es relaciona amb la molaritat per $C = M \cdot M_m$.</p>
+            <p class="text-xs text-slate-500 mt-2">Grams de solut continguts en cada litre de dissolució. Es relaciona per $C = M \cdot M_m$.</p>
           </div>
 
           <!-- Densitat de la dissolució -->
@@ -386,7 +462,7 @@
               <i class="fa-solid fa-water text-blue-600"></i> 1. Dilució d'una dissolució concentrada
             </h5>
             <p class="text-xs text-slate-700 mb-3">
-              En afegir dissolvent pur a una dissolució concentrada, la quantitat de matèria (mols o massa) de solut <strong>no canvia</strong> ($n_1 = n_2$).
+              En afegir dissolvent pur a una dissolució concentrada, la quantitat de matèria de solut <strong>no canvia</strong> ($n_1 = n_2$).
             </p>
             <div class="bg-white p-3 rounded-lg border border-blue-200 text-center font-mono font-bold text-blue-900 text-base mb-2">
               $$C_1 \cdot V_1 = C_2 \cdot V_2 \quad \Longleftrightarrow \quad M_1 \cdot V_1 = M_2 \cdot V_2$$
@@ -408,7 +484,7 @@
               $$M_f = \frac{n_1 + n_2}{V_f} = \frac{M_1 V_1 + M_2 V_2}{V_1 + V_2}$$
             </div>
             <p class="text-[11px] text-slate-600">
-              <em>Nota:</em> Se sol assumir que els volums són additius ($V_f = V_1 + V_2$), llevat que l'enunciat indiqui una densitat experimental de la mescla final.
+              <em>Nota:</em> Se sol assumir que els volums són additius ($V_f = V_1 + V_2$), llevat que s'indiqui una densitat experimental de la mescla final.
             </p>
           </div>
 
@@ -429,10 +505,9 @@
 
         <div class="space-y-6 text-sm text-slate-700">
           <p>
-            Un <strong>col·loide</strong> (o dispersió col·loidal) és un sistema intermedi entre les dissolucions vertaderes i les suspensions grolleres. Està constituït per dues fases: la <strong>fase dispersa</strong> (partícules de mida compresa entre $1\text{ nm}$ i $1000\text{ nm}$ o $1\ \mu\text{m}$) i el <strong>medi de dispersió</strong>.
+            Un <strong>col·loide</strong> (o dispersió col·loidal) és un sistema intermedi entre les dissolucions vertaderes i les suspensions. Està constituït per dues fases: la <strong>fase dispersa</strong> (partícules de mida compresa entre $1\text{ nm}$ i $1000\text{ nm}$) i el <strong>medi de dispersió</strong>.
           </p>
 
-          <!-- Comparativa de Sistemes de Dispersió -->
           <div class="overflow-x-auto">
             <table class="w-full text-xs text-left border-collapse border border-slate-200 rounded-xl overflow-hidden">
               <thead class="bg-slate-100 text-slate-800 uppercase font-bold text-[11px]">
@@ -446,53 +521,51 @@
               <tbody class="divide-y divide-slate-200 text-slate-600">
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Mida de partícula</td>
-                  <td class="p-3 border border-slate-200 font-mono">< 1 nm (àtoms, ions, petites molècules)</td>
+                  <td class="p-3 border border-slate-200 font-mono">&lt; 1 nm (àtoms, ions, molècules)</td>
                   <td class="p-3 border border-slate-200 font-mono font-bold text-teal-800">1 nm a 1000 nm (macromolècules, agregats)</td>
-                  <td class="p-3 border border-slate-200 font-mono">> 1000 nm (grumolls visibles)</td>
+                  <td class="p-3 border border-slate-200 font-mono">&gt; 1000 nm (partícules visibles)</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Homogeneïtat</td>
                   <td class="p-3 border border-slate-200">Homogènia</td>
-                  <td class="p-3 border border-slate-200">Heterogènia al microscopi òptic</td>
-                  <td class="p-3 border border-slate-200">Clarament heterogènia a simple vista</td>
+                  <td class="p-3 border border-slate-200">Heterogènia al microscopi</td>
+                  <td class="p-3 border border-slate-200">Heterogènia a simple vista</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Sedimentació</td>
                   <td class="p-3 border border-slate-200">No sedimenta mai</td>
-                  <td class="p-3 border border-slate-200">No sedimenta per gravetat ordinària (cal ultracentrifugació)</td>
-                  <td class="p-3 border border-slate-200">Sedimenta ràpidament per gravetat en repòs</td>
+                  <td class="p-3 border border-slate-200">No sedimenta per gravetat (cal ultracentrifugació)</td>
+                  <td class="p-3 border border-slate-200">Sedimenta en repòs per gravetat</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Efecte Tyndall (Llum)</td>
-                  <td class="p-3 border border-slate-200">Transparent; el feix de llum no és visible</td>
+                  <td class="p-3 border border-slate-200">Transparent; el feix no és visible</td>
                   <td class="p-3 border border-slate-200 font-semibold text-teal-700">Dispersa la llum (trajectòria visible)</td>
-                  <td class="p-3 border border-slate-200">Opaca o tèrbola; bloqueja o reflecteix la llum</td>
+                  <td class="p-3 border border-slate-200">Opaca o tèrbola; reflecteix la llum</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Filtrabilitat</td>
                   <td class="p-3 border border-slate-200">Passa paper de filtre i membranes</td>
-                  <td class="p-3 border border-slate-200">Passa paper de filtre ordinari; retingut per membranes semipermeables (diàlisi)</td>
+                  <td class="p-3 border border-slate-200">Passa paper de filtre ordinari; retingut per membranes semipermeables</td>
                   <td class="p-3 border border-slate-200">Separable amb paper de filtre ordinari</td>
                 </tr>
                 <tr>
                   <td class="p-3 font-semibold text-slate-800 border border-slate-200">Exemples</td>
                   <td class="p-3 border border-slate-200">Aigua amb sucre, aigua amb sal</td>
                   <td class="p-3 border border-slate-200 font-medium text-slate-900">Llet, maionesa, gelatina, boira, sang, or col·loidal</td>
-                  <td class="p-3 border border-slate-200">Aigua amb farina, aigua tèrbola amb argila</td>
+                  <td class="p-3 border border-slate-200">Aigua amb farina, fang, aigua amb argila</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- Propietats característiques dels col·loides -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-            
             <div class="p-4 rounded-xl border border-teal-200 bg-teal-50/40">
               <h5 class="font-bold text-teal-900 flex items-center gap-2 mb-2 text-sm">
                 <i class="fa-solid fa-wand-magic-sparkles text-teal-600"></i> Efecte Tyndall
               </h5>
               <p class="text-xs text-slate-700 leading-relaxed">
-                Quan un feix de llum travessa una dispersió col·loidal, les partícules disperses (que tenen dimensions comparables a la longitud d'ona de la llum visible) dispersen la llum en totes direccions, fent que el camí del feix es torni visible lateralment. Aquest és el mateix fenomen que permet veure els fars d'un cotxe en una nit amb boira o els raigs de sol entrant en una habitació amb pols en suspensió.
+                Quan un feix de llum travessa una dispersió col·loidal, les partícules disperses (que tenen dimensions comparables a la longitud d'ona de la llum) dispersen la llum en totes direccions, fent que el camí del feix es torni visible lateralment. Permet distingir ràpidament un col·loide d'una dissolució vertadera mitjançant un punter làser.
               </p>
             </div>
 
@@ -501,10 +574,9 @@
                 <i class="fa-solid fa-arrows-spin text-teal-600"></i> Moviment Brownià i Estabilitat
               </h5>
               <p class="text-xs text-slate-700 leading-relaxed">
-                Les partícules col·loidals es troben en un constant moviment caòtic en ziga-zaga a causa dels xocs ininterromputs amb les molècules del medi dispersant. Aquest moviment continu contraresta la força de la gravetat i impedeix que les partícules sedimentin. A més, les partícules sovint adquireixen càrrega elèctrica superficial (per adsorció d'ions), repel·lint-se mútuament i evitant la seva coagulació.
+                Les partícules col·loidals es troben en un constant moviment caòtic en ziga-zaga a causa dels xocs ininterromputs amb les molècules del medi dispersant. Aquest moviment contraresta la gravetat i impedeix que sedimentin. A més, la càrrega elèctrica superficial fa que es repel·leixin evitant la seva coagulació.
               </p>
             </div>
-
           </div>
         </div>
       </article>
@@ -533,7 +605,7 @@
             <div class="mt-3 pt-3 border-t border-amber-200/60 flex flex-wrap items-center gap-3 text-xs">
               <span class="font-bold text-amber-950">Factor de van 't Hoff ($i$):</span>
               <span class="bg-white px-2.5 py-1 rounded border border-amber-200">No electròlits (glucosa, sacarosa, urea): $i = 1$</span>
-              <span class="bg-white px-2.5 py-1 rounded border border-amber-200">Electròlits forts: $i \approx \nu$ (p. ex. $\text{NaCl} \to i = 2$, $\text{CaCl}_2 \to i = 3$)</span>
+              <span class="bg-white px-2.5 py-1 rounded border border-amber-200">Electròlits forts: $i \approx \nu$ (ex: $\text{NaCl} \to i = 2$, $\text{CaCl}_2 \to i = 3$)</span>
               <span class="bg-white px-2.5 py-1 rounded border border-amber-200 font-mono">General: $i = 1 + \alpha(\nu - 1)$</span>
             </div>
           </div>
@@ -548,7 +620,7 @@
                 <h5 class="font-bold text-slate-900 text-sm">Descens de la pressió de vapor (Llei de Raoult)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                Quan s'afegeix un solut no volàtil a un dissolvent pur, les molècules de solut ocupen part de la superfície lliure del líquid, dificultant l'evaporació del dissolvent.
+                Quan s'afegeix un solut no volàtil a un dissolvent pur, les molècules de solut ocupen part de la superfície del líquid, reduint la quantitat de molècules de solvent capaces d'evaporar-se.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-sky-800 text-sm mb-2">
                 $$\Delta P = P^\circ - P = P^\circ \cdot \chi_{\text{solut}} \cdot i$$
@@ -564,12 +636,12 @@
                 <h5 class="font-bold text-slate-900 text-sm">Augment ebullioscòpic (&Delta;T<sub>e</sub>)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                Com que la pressió de vapor disminueix, cal una temperatura més alta perquè la pressió de vapor s'iguali a la pressió exterior. Per tant, el punt d'ebullició de la dissolució és sempre superior al del dissolvent pur.
+                Com que la pressió de vapor disminueix, cal una temperatura més elevada perquè s'iguali a la pressió atmosfèrica exterior. El punt d'ebullició de la dissolució és sempre superior al del dissolvent pur.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-red-800 text-sm mb-2">
                 $$\Delta T_e = T_e - T_e^\circ = K_e \cdot m \cdot i$$
               </div>
-              <p class="text-[11px] text-slate-500">$K_e$: constant ebullioscòpica molal ($^\circ\text{C}\cdot\text{kg}\cdot\text{mol}^{-1}$), pròpia de cada dissolvent (per a l'aigua: $0,512\ ^\circ\text{C}\cdot\text{kg/mol}$).</p>
+              <p class="text-[11px] text-slate-500">$K_e$: constant ebullioscòpica molal (per a l'aigua: $0,512\ ^\circ\text{C}\cdot\text{kg/mol}$).</p>
             </div>
 
             <!-- 3. Descens crioscòpic -->
@@ -579,12 +651,12 @@
                 <h5 class="font-bold text-slate-900 text-sm">Descens crioscòpic (&Delta;T<sub>c</sub>)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                Les partícules de solut destorben la formació de la xarxa cristal·lina sòlida regular del dissolvent quan es refreda. La dissolució es congela a una temperatura inferior a la del dissolvent pur.
+                Les partícules de solut obstaculitzen la formació de l'estructura cristal·lina sòlida regular. La dissolució es congela a una temperatura inferior a la del dissolvent pur.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-cyan-800 text-sm mb-2">
                 $$\Delta T_c = T_c^\circ - T_c = K_c \cdot m \cdot i$$
               </div>
-              <p class="text-[11px] text-slate-500">$K_c$: constant crioscòpica molal ($^\circ\text{C}\cdot\text{kg}\cdot\text{mol}^{-1}$). Per a l'aigua és $1,86\ ^\circ\text{C}\cdot\text{kg/mol}$. <em>Aplicació: sal a les carreteres glaçades</em>.</p>
+              <p class="text-[11px] text-slate-500">$K_c$: constant crioscòpica molal (per a l'aigua és $1,86\ ^\circ\text{C}\cdot\text{kg/mol}$). <em>Aplicació: sal a les carreteres glaçades</em>.</p>
             </div>
 
             <!-- 4. Pressió osmòtica -->
@@ -594,12 +666,12 @@
                 <h5 class="font-bold text-slate-900 text-sm">Pressió osmòtica (&Pi; - Llei de van 't Hoff)</h5>
               </div>
               <p class="text-xs text-slate-600 mb-3 leading-relaxed">
-                L'<strong>osmòlisi</strong> és el flux espontani de molècules de dissolvent pur a través d'una membrana semipermeable cap a una dissolució més concentrada. La pressió osmòtica és la pressió que cal aplicar per aturar aquest flux.
+                L'<strong>osmòlisi</strong> és el flux espontani de molècules de dissolvent pur a través d'una membrana semipermeable cap a la dissolució més concentrada.
               </p>
               <div class="p-3 bg-white rounded-lg border border-slate-200 text-center font-mono font-bold text-teal-800 text-sm mb-2">
                 $$\Pi = M \cdot R \cdot T \cdot i$$
               </div>
-              <p class="text-[11px] text-slate-500">$M$: molaritat ($\text{mol/L}$), $R = 0,082\ \text{atm}\cdot\text{L}\cdot\text{mol}^{-1}\cdot\text{K}^{-1}$, $T$: temperatura absoluta en Kelvin ($T\text{ (K)} = T\text{ (}^\circ\text{C)} + 273,15$).</p>
+              <p class="text-[11px] text-slate-500">$M$: molaritat ($\text{mol/L}$), $R = 0,082\ \text{atm}\cdot\text{L}\cdot\text{mol}^{-1}\cdot\text{K}^{-1}$, $T$: temperatura absoluta en Kelvin.</p>
             </div>
 
           </div>
@@ -609,7 +681,7 @@
             <i class="fa-solid fa-microchip text-slate-500 text-lg mt-0.5"></i>
             <div>
               <strong class="text-slate-900 block mb-1">Determinació experimental de masses moleculars (Crioscòpia i Osmometria):</strong>
-              Mesurant experimentalment el descens crioscòpic $\Delta T_c$ o la pressió osmòtica $\Pi$ que produeix una massa coneguda $m_s$ d'un solut no volàtil en un volum o massa de dissolvent, podem determinar amb gran precisió la massa molar ($M_m$) de compostos orgànics o biomolècules:
+              Mesurant experimentalment el descens crioscòpic $\Delta T_c$ o la pressió osmòtica $\Pi$, podem calcular la massa molar ($M_m$) de compostos orgànics o biomolècules:
               <span class="font-mono text-sky-800 font-bold block mt-1">
                 $$M_m = \frac{K_c \cdot m_{\text{solut}}\text{ (g)}}{\Delta T_c \cdot m_{\text{dissolvent}}\text{ (kg)}} \qquad \text{o bé} \qquad M_m = \frac{m_{\text{solut}}\text{ (g)} \cdot R \cdot T}{\Pi \cdot V\text{ (L)}}$$
               </span>
@@ -624,7 +696,7 @@
     <!-- ================================================================= -->
     <!-- SECCIÓ 2: PESTANYA D'ACTIVITATS (REFORÇ I AMPLIACIÓ)               -->
     <!-- ================================================================= -->
-    <div id="section-activitats" class="subcontent-pane hidden space-y-8 animate-fade-in">
+    <div id="section-activitats" class="subcontent-pane space-y-8 animate-fade-in" style="display: none;">
 
       <!-- Capçalera Activitats amb filtre -->
       <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
@@ -679,16 +751,16 @@
             </button>
 
             <!-- Solució desplegable -->
-            <div id="sol-reforc-1" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg">
+            <div id="sol-reforc-1" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
               <p><strong>Pas 1: Massa molar del $\text{NaCl}$:</strong><br>
-                $M_m(\text{NaCl}) = 23,0 + 35,5 = 58,5\text{ g/mol}$.
+                $$M_m(\text{NaCl}) = 23,0 + 35,5 = 58,5\text{ g/mol}$$
               </p>
               <p><strong>a) Concentració en massa ($C$ en g/L):</strong><br>
                 $$C = \frac{m_{\text{solut}}}{V_{\text{diss}}} = \frac{14,625\text{ g}}{0,500\text{ L}} = \mathbf{29,25\text{ g/L}}$$
               </p>
               <p><strong>b) Molaritat ($M$):</strong><br>
                 $$n_{\text{NaCl}} = \frac{14,625\text{ g}}{58,5\text{ g/mol}} = 0,25\text{ mol}$$
-                $$M = \frac{n}{V} = \frac{0,25\text{ mol}}{0,500\text{ L}} = \mathbf{0,50\text{ M (o mol/L)}}$$
+                $$M = \frac{n}{V} = \frac{0,25\text{ mol}}{0,500\text{ L}} = \mathbf{0,50\text{ M (mol/L)}}$$
               </p>
               <p><strong>c) Percentatge en massa (% m/m):</strong><br>
                 La massa de la dissolució s'obté mitjançant la densitat:<br>
@@ -720,13 +792,13 @@
               <span>Mostra la resolució pas a pas</span>
             </button>
 
-            <div id="sol-reforc-2" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg">
+            <div id="sol-reforc-2" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
               <p><strong>Principi de conservació del solut:</strong> Els mols d'$\text{HCl}$ continguts en el volum concentrat inicial han de ser iguals als mols de la dissolució final diluïda:</p>
               <p class="font-mono text-center text-sm py-1">$$M_1 \cdot V_1 = M_2 \cdot V_2$$</p>
               <p>Substituint amb les dades ($M_1 = 4,0\text{ M}$, $M_2 = 0,20\text{ M}$, $V_2 = 250\text{ mL}$):</p>
               <p>$$4,0\text{ M} \cdot V_1 = 0,20\text{ M} \cdot 250\text{ mL}$$</p>
               <p>$$V_1 = \frac{0,20 \cdot 250}{4,0} = \mathbf{12,5\text{ mL}}$$</p>
-              <p><strong>Procediment de laboratori:</strong> Es pipetegen $12,5\text{ mL}$ d'$\text{HCl}$ de l'ampolla de $4,0\text{ M}$ (sempre afegint l'àcid sobre una mica d'aigua prèvia en un matràs aforat per seguretat) i s'enrasa amb aigua destil·lada fins a la línia dels $250\text{ mL}$ (aproximadament s'afegeixen $250 - 12,5 = 237,5\text{ mL}$ d'aigua).</p>
+              <p><strong>Procediment de laboratori:</strong> Es pipetegen $12,5\text{ mL}$ d'$\text{HCl}$ de l'ampolla de $4,0\text{ M}$ (afegint l'àcid sobre una mica d'aigua prèvia en un matràs aforat per seguretat) i s'enrasa amb aigua destil·lada fins a la línia dels $250\text{ mL}$ (aproximadament s'afegeixen $250 - 12,5 = 237,5\text{ mL}$ d'aigua).</p>
             </div>
           </div>
 
@@ -755,7 +827,7 @@
               <span>Mostra la resolució pas a pas</span>
             </button>
 
-            <div id="sol-reforc-3" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg">
+            <div id="sol-reforc-3" class="hidden mt-4 pt-4 border-t border-emerald-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
               <p><strong>Fórmula general del descens crioscòpic:</strong> $\Delta T_c = K_c \cdot m \cdot i$. El punt de congelació pur de l'aigua és $T_c^\circ = 0^\circ\text{C}$, per tant $T_{\text{congelació}} = 0 - \Delta T_c$.</p>
               <p><strong>1. Dissolució A (Glucosa):</strong><br>
                 És un solut molecular que no s'ionitza, per la qual cosa el factor de van 't Hoff és $i = 1$.<br>
@@ -786,7 +858,7 @@
               <strong>Dades:</strong> Masses atòmiques: $\text{H} = 1,0\text{ u}$, $\text{S} = 32,1\text{ u}$, $\text{O} = 16,0\text{ u}$.<br>
               <strong>Calcula:</strong><br>
               a) Els mols d'$\text{H}_2\text{SO}_4$ aportats per cadascuna de les dues dissolucions.<br>
-              b) El volum real de la dissolució final obtinguda (tingues en compte la densitat final, ja que els volums no són estrictament additius).<br>
+              b) El volum real de la dissolució final obtinguda (tingues en compte la densitat final).<br>
               c) La Molaritat ($M$) i la fracció molar ($\chi$) d'$\text{H}_2\text{SO}_4$ a la mescla final.
             </p>
             
@@ -795,7 +867,7 @@
               <span>Mostra la resolució pas a pas</span>
             </button>
 
-            <div id="sol-ampliacio-1" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg">
+            <div id="sol-ampliacio-1" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
               <p><strong>Massa molar:</strong> $M_m(\text{H}_2\text{SO}_4) = 2(1,0) + 32,1 + 4(16,0) = 98,1\text{ g/mol}$.</p>
               
               <p><strong>a) Mols de cada dissolució:</strong><br>
@@ -809,14 +881,14 @@
               </p>
 
               <p><strong>b) Massa total i volum final:</strong><br>
-                Massa de la dissolució 2: Cal conèixer la massa d'$\text{H}_2\text{SO}_4$ a la dissolució 2 ($0,75\text{ mol} \cdot 98,1 = 73,58\text{ g}$). Si assumim la densitat estàndard de la solució $2,5\text{ M}$ d'aproximadament $1,15\text{ g/mL}$, la massa total és $m_1 + m_2 \approx 368 + (300 \cdot 1,15) = 713\text{ g}$.<br>
-                Volum final obtingut mitjançant la densitat experimental $\rho_f = 1,28\text{ g/mL}$:<br>
+                Massa de la dissolució 2: La massa d'$\text{H}_2\text{SO}_4$ a la dissolució 2 és $73,58\text{ g}$. Amb una densitat típica de la solució $2,5\text{ M}$ d'aprox. $1,15\text{ g/mL}$, la massa total és $m_1 + m_2 \approx 368 + (300 \cdot 1,15) = 713\text{ g}$.<br>
+                Volum final amb la densitat experimental $\rho_f = 1,28\text{ g/mL}$:<br>
                 $$V_f = \frac{m_{\text{total}}}{\rho_f} = \frac{713\text{ g}}{1,28\text{ g/mL}} = 557\text{ mL} = \mathbf{0,557\text{ L}}$$
               </p>
 
               <p><strong>c) Molaritat i Fracció Molar final:</strong><br>
                 $$M_f = \frac{n_{\text{total}}}{V_f} = \frac{4,351\text{ mol}}{0,557\text{ L}} = \mathbf{7,81\text{ M}}$$
-                Massa d'aigua a la mescla: $m_{\text{aigua}} = 713\text{ g} - 426,83\text{ g} = 286,17\text{ g}$.<br>
+                Massa d'aigua: $m_{\text{aigua}} = 713\text{ g} - 426,83\text{ g} = 286,17\text{ g}$.<br>
                 Mols d'aigua: $n_{\text{aigua}} = \frac{286,17}{18,0} = 15,90\text{ mol}$.<br>
                 $$\chi_{\text{H}_2\text{SO}_4} = \frac{4,351}{4,351 + 15,90} = \mathbf{0,215}$$
               </p>
@@ -849,7 +921,7 @@
               <span>Mostra la resolució pas a pas</span>
             </button>
 
-            <div id="sol-ampliacio-2" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg">
+            <div id="sol-ampliacio-2" class="hidden mt-4 pt-4 border-t border-indigo-200/80 text-xs text-slate-700 space-y-3 bg-white p-4 rounded-lg" style="display: none;">
               <p><strong>a) Càlcul de la Molaritat a partir de la Llei de van 't Hoff:</strong><br>
                 Temperatura absoluta: $T = 25,0 + 273,15 = 298,15\text{ K}$.<br>
                 $$\Pi = M \cdot R \cdot T \implies M = \frac{\Pi}{R \cdot T}$$
@@ -862,7 +934,7 @@
                 La massa molecular relativa és d'aproximadament $62,1\text{ kDa}$ (quilodaltons).
               </p>
               <p><strong>c) Justificació bioquímica:</strong><br>
-                Les macromolècules tenen masses molars molt elevades, de manera que quantitats típiques de mostra produeixen molalitats extraordinàriament baixes (de l'ordre de $10^{-4}\text{ m}$). En crioscòpia, això produiria un descens de temperatura de tan sols $\Delta T_c = 1,86 \cdot 10^{-4} \approx 0,0002^\circ\text{C}$, impossible de mesurar sense aparells de recerca extremament cars. En canvi, la pressió osmòtica produeix una pressió mesurable de diversos mil·límetres de columna de líquid a temperatura ambient, sense desnaturalitzar les proteïnes.
+                Les macromolècules tenen masses molars molt elevades, de manera que quantitats típiques de mostra produeixen molalitats extraordinàriament baixes (de l'ordre de $10^{-4}\text{ m}$). En crioscòpia, això produiria un descens de temperatura de tan sols $\Delta T_c = 1,86 \cdot 10^{-4} \approx 0,0002^\circ\text{C}$, impossible de mesurar sense aparells molt cars. En canvi, la pressió osmòtica produeix una pressió mesurable de diversos mil·límetres de columna de líquid a temperatura ambient, sense desnaturalitzar les proteïnes.
               </p>
             </div>
           </div>
@@ -875,7 +947,7 @@
     <!-- ================================================================= -->
     <!-- SECCIÓ 3: MATERIAL AUDIOVISUAL I PRÀCTIQUES DE LABORATORI         -->
     <!-- ================================================================= -->
-    <div id="section-laboratori" class="subcontent-pane hidden space-y-12 animate-fade-in">
+    <div id="section-laboratori" class="subcontent-pane space-y-12 animate-fade-in" style="display: none;">
 
       <!-- Capçalera de Laboratori -->
       <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
@@ -937,7 +1009,7 @@
                 </div>
                 <h5 class="font-bold text-slate-900 text-base mb-1">Concentració i Solubilitat (Concentration)</h5>
                 <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                  Afegeix diferents sals ($\text{NaCl}$, $\text{CuSO}_4$, $\text{KMnO}_4$, etc.), mesura amb el sensor de concentració, afegeix aigua o evapora dissolvent amb el cremador per veure la cristal·lització.
+                  Afegeix diferents sals ($\text{NaCl}$, $\text{CuSO}_4$, $\text{KMnO}_4$), mesura amb el sensor de concentració, afegeix aigua o evapora dissolvent amb el cremador per veure la cristal·lització.
                 </p>
                 <div class="aspect-video bg-slate-950 rounded-lg overflow-hidden relative shadow-inner">
                   <iframe 
@@ -988,7 +1060,7 @@
                   <i class="fa-solid fa-bullseye text-teal-600"></i> Objectius de la pràctica
                 </h6>
                 <ul class="list-disc pl-5 space-y-1">
-                  <li>Aprendre a utilitzar amb precisió la balança de precisió, el vidre de rellotge, el matràs aforat i la pipeta.</li>
+                  <li>Aprendre a utilitzar amb precisió la balança, el vidre de rellotge, el matràs aforat i la pipeta.</li>
                   <li>Realitzar els càlculs estequiomètrics previs de massa de solut i volum de dilució.</li>
                   <li>Dominar la tècnica de transvasament quantitatiu i l'enrasament correcte a nivell d'ull (evitant l'error de paral·laxi).</li>
                 </ul>
@@ -1044,13 +1116,13 @@
                   <div class="flex items-start gap-3">
                     <span class="w-5 h-5 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">4</span>
                     <div>
-                      <strong>Enrasament i homogeneïtzació:</strong> Afegir aigua destil·lada fins a uns mil·límetres per sota de la línia d'aforament. Amb l'ajuda d'un comptagotes o pipeta Pasteur, afegir aigua gota a gota amb els ulls situats a l'alçada exacta de l'enràs, fins que la part inferior del menisc còncau toqui tangencialment la línia de la marca. Tapar el matràs i invertir-lo diverses vegades per homogeneïtzar la dissolució.
+                      <strong>Enrasament i homogeneïtzació:</strong> Afegir aigua destil·lada fins a uns mil·límetres per sota de la línia d'aforament. Amb l'ajuda d'un comptagotes o pipeta Pasteur, afegir aigua gota a gota amb els ulls situats a l'alçada exacta de l'enràs, fins que la part inferior del menisc toqui tangencialment la línia d'aforament. Tapar el matràs i invertir-lo diverses vegades per homogeneïtzar.
                     </div>
                   </div>
                   <div class="flex items-start gap-3">
                     <span class="w-5 h-5 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">5</span>
                     <div>
-                      <strong>Dilució:</strong> Amb una pipeta aforada de $10\text{ mL}$ i propipeta, agafar $10,0\text{ mL}$ d'aquesta dissolució preparada, transvasar-los a un matràs aforat de $250\text{ mL}$ i enrasar amb aigua destil·lada. Homogeneïtzar i calcular la concentració final obtinguda.
+                      <strong>Dilució:</strong> Amb una pipeta aforada de $10\text{ mL}$ i propipeta, agafar $10,0\text{ mL}$ d'aquesta dissolució, transvasar-los a un matràs aforat de $250\text{ mL}$ i enrasar amb aigua destil·lada. Homogeneïtzar i calcular la concentració final obtinguda.
                     </div>
                   </div>
                 </div>
@@ -1063,7 +1135,7 @@
                 </h6>
                 <ol class="list-decimal pl-5 space-y-1.5 text-slate-600">
                   <li>Per què no s'ha de dissoldre mai el sòlid directament dins del matràs aforat?</li>
-                  <li>Què passaria amb la concentració real de la dissolució si no s'haguessin recollit les aigües de rentat del vas de precipitats? Seria superior o inferior a l'esperada?</li>
+                  <li>Què passaria amb la concentració real si no s'haguessin recollit les aigües de rentat del vas de precipitats? Seria superior o inferior a l'esperada?</li>
                   <li>Explica com afectaria la concentració si haguessis enrasat per sobre de la marca d'aforament i intentessis corregir-ho retirant líquid amb una pipeta.</li>
                   <li>Calcula la molaritat exacta de la segona dissolució diluïda ($V_1 = 10\text{ mL}$, $V_2 = 250\text{ mL}$).</li>
                 </ol>
@@ -1096,7 +1168,7 @@
                 </div>
                 <div class="p-3 rounded-lg bg-teal-50/60 border border-teal-200">
                   <span class="font-bold text-teal-900 block mb-1">Mostra B (Col·loide):</span>
-                  Aigua amb unes gotes de llet desnatada o suspensió diluïda de midó bullit. Aparentment transparent o lleugerament opalescent, però el feix làser es veu amb total nitidesa (Efecte Tyndall!). Passa el paper de filtre ordinari sense deixar residu.
+                  Aigua amb unes gotes de llet desnatada o suspensió diluïda de midó bullit. Aparentment transparent, però el feix làser es veu amb total nitidesa (Efecte Tyndall!). Passa el paper de filtre ordinari sense deixar residu.
                 </div>
                 <div class="p-3 rounded-lg bg-amber-50/60 border border-amber-200">
                   <span class="font-bold text-amber-900 block mb-1">Mostra C (Suspensió):</span>
@@ -1126,7 +1198,7 @@
                 <span class="text-[10px] font-bold text-sky-700 uppercase">Tècnica de Laboratori</span>
                 <h5 class="font-bold text-slate-900 text-sm mt-1 mb-2">Com preparar una dissolució i utilitzar el matràs aforat</h5>
                 <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                  Instruccions visuals sobre la pesada en balança, ús de la vareta, rentat d'embut i tècnica correcta d'enrasament a nivell d'ulls.
+                  Instruccions sobre pesada en balança, ús de la vareta, rentat d'embut i tècnica d'enrasament a nivell d'ulls.
                 </p>
                 <a href="https://www.youtube.com/results?search_query=preparacion+de+disoluciones+laboratorio+quimica" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-sky-600 hover:text-sky-800 flex items-center gap-1">
                   <span>Cerca tutorials recomanats</span>
@@ -1145,7 +1217,7 @@
                 <span class="text-[10px] font-bold text-teal-700 uppercase">Fenòmens Òptics</span>
                 <h5 class="font-bold text-slate-900 text-sm mt-1 mb-2">L'Efecte Tyndall en acció amb làser</h5>
                 <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                  Comparativa en temps real d'un punter làser verd travessant aigua pura, aigua amb sal, llet diluïda i suspensió col·loidal.
+                  Comparativa d'un punter làser travessant aigua pura, aigua amb sal, llet diluïda i suspensió col·loidal.
                 </p>
                 <a href="https://www.youtube.com/results?search_query=tyndall+effect+experiment+chemistry" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-teal-600 hover:text-teal-800 flex items-center gap-1">
                   <span>Explora experiments en vídeo</span>
@@ -1162,9 +1234,9 @@
               </div>
               <div class="p-4">
                 <span class="text-[10px] font-bold text-amber-700 uppercase">Termodinàmica Molecular</span>
-                <h5 class="font-bold text-slate-900 text-sm mt-1 mb-2">Com funcionen les propietats col·ligatives a escala microscòpica?</h5>
+                <h5 class="font-bold text-slate-900 text-sm mt-1 mb-2">Com funcionen les propietats col·ligatives a escala molecular?</h5>
                 <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                  Animació molecular explicant per què les molècules de solut impedeixen la congelació i dificulten la vaporització del solvent.
+                  Animació molecular explicant per què les partícules de solut impedeixen la congelació i dificulten la vaporització.
                 </p>
                 <a href="https://www.youtube.com/results?search_query=colligative+properties+explained+animation" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-amber-700 hover:text-amber-800 flex items-center gap-1">
                   <span>Visualitza animacions 3D</span>
@@ -1185,7 +1257,7 @@
   <!-- ================================================================= -->
   <!-- MODAL: CALCULADORA INTERACTIVA DE DISSOLUCIONS                   -->
   <!-- ================================================================= -->
-  <div id="calculatorModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+  <div id="calculatorModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4" style="display: none;">
     <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative animate-scale-up">
       <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
         <div class="flex items-center gap-2">
@@ -1209,7 +1281,7 @@
       </div>
 
       <!-- Formulari Molaritat -->
-      <div id="calcPaneMolarity" class="space-y-3 text-xs">
+      <div id="calcPaneMolarity" class="space-y-3 text-xs" style="display: block;">
         <div>
           <label class="block font-medium text-slate-700 mb-1">Selecciona o introdueix el compost:</label>
           <select id="calcSoluteSelect" onchange="onSelectSoluteChange()" class="w-full p-2 border border-slate-300 rounded-lg text-xs bg-white">
@@ -1223,7 +1295,7 @@
           </select>
         </div>
 
-        <div id="calcCustomMmDiv" class="hidden">
+        <div id="calcCustomMmDiv" class="hidden" style="display: none;">
           <label class="block font-medium text-slate-700 mb-1">Massa molar personalitzada (g/mol):</label>
           <input type="number" id="calcCustomMm" step="0.01" value="58.44" class="w-full p-2 border border-slate-300 rounded-lg text-xs">
         </div>
@@ -1243,7 +1315,7 @@
           Calcular Molaritat
         </button>
 
-        <div id="calcMolarityResult" class="hidden p-3 rounded-xl bg-sky-50 border border-sky-200 text-center">
+        <div id="calcMolarityResult" class="hidden p-3 rounded-xl bg-sky-50 border border-sky-200 text-center" style="display: none;">
           <span class="text-[11px] text-sky-800 uppercase font-bold tracking-wider block">Resultat obtingut</span>
           <div class="text-xl font-black text-sky-950 font-mono my-1" id="molarityValue">-- M</div>
           <div class="text-[11px] text-slate-600" id="molarityDetails">--</div>
@@ -1251,7 +1323,7 @@
       </div>
 
       <!-- Formulari Dilució -->
-      <div id="calcPaneDilution" class="hidden space-y-3 text-xs">
+      <div id="calcPaneDilution" class="hidden space-y-3 text-xs" style="display: none;">
         <p class="text-slate-600">Calcula el volum necessari per diluir una dissolució utilitzant $C_1 \cdot V_1 = C_2 \cdot V_2$:</p>
         
         <div class="grid grid-cols-2 gap-3">
@@ -1277,7 +1349,7 @@
           Calcular Dilució
         </button>
 
-        <div id="calcDilutionResult" class="hidden p-3 rounded-xl bg-indigo-50 border border-indigo-200 text-center">
+        <div id="calcDilutionResult" class="hidden p-3 rounded-xl bg-indigo-50 border border-indigo-200 text-center" style="display: none;">
           <span class="text-[11px] text-indigo-800 uppercase font-bold tracking-wider block">Resultat</span>
           <div class="text-xl font-black text-indigo-950 font-mono my-1" id="dilutionValue">--</div>
           <div class="text-[11px] text-slate-600" id="dilutionDetails">--</div>
@@ -1288,7 +1360,7 @@
   </div>
 
   <!-- MODAL: UNITAT DIDÀCTICA PROPERAMENT -->
-  <div id="upcomingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+  <div id="upcomingModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4" style="display: none;">
     <div class="bg-white rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl border border-slate-200 animate-scale-up">
       <div class="w-14 h-14 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
         <i class="fa-solid fa-hourglass-half"></i>
@@ -1327,12 +1399,264 @@
 
       <div class="mt-8 pt-6 border-t border-slate-800/80 text-center text-slate-500 text-[11px] flex flex-col sm:flex-row justify-between items-center gap-2">
         <p>Recursos educatius d'accés obert per a l'ensenyament de la química científica.</p>
-        <p>Allotjat a GitHub Pages &bull; Fórmules amb KaTeX &bull; Simuladors PhET</p>
+        <p>Allotjat a GitHub Pages &bull; Fórmules amb MathJax 3 &bull; Simuladors PhET</p>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <!-- LÒGICA JAVASCRIPT INTEGRADA DIRECTAMENT PER ASSEGURAR FUNCIONAMENT TOTAL -->
+  <script>
+    // Canvi de sub-pestanyes (Teoria, Activitats, Laboratori)
+    window.switchSubSection = function(sectionId) {
+      var panes = document.querySelectorAll('.subcontent-pane');
+      for (var i = 0; i < panes.length; i++) {
+        panes[i].classList.add('hidden');
+        panes[i].style.display = 'none';
+      }
+
+      var buttons = document.querySelectorAll('.subsection-btn');
+      for (var j = 0; j < buttons.length; j++) {
+        buttons[j].classList.remove('active', 'bg-white', 'text-sky-700', 'shadow-sm');
+        buttons[j].classList.add('text-slate-600');
+      }
+
+      var targetPane = document.getElementById('section-' + sectionId);
+      if (targetPane) {
+        targetPane.classList.remove('hidden');
+        targetPane.style.display = 'block';
+      }
+
+      var targetBtn = document.getElementById('subtab-' + sectionId);
+      if (targetBtn) {
+        targetBtn.classList.add('active', 'bg-white', 'text-sky-700', 'shadow-sm');
+        targetBtn.classList.remove('text-slate-600');
+      }
+
+      // Re-renderitzar fórmules MathJax si fos necessari
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise();
+      }
+
+      window.scrollTo({
+        top: 130,
+        behavior: 'smooth'
+      });
+    };
+
+    // Navegar a unitat
+    window.navigateToUnit = function(unitId) {
+      if (unitId === 'dissolucions') {
+        window.switchSubSection('teoria');
+      }
+    };
+
+    // Filtre d'activitats (Totes, Reforç, Ampliació)
+    window.filterActivities = function(category) {
+      var cards = document.querySelectorAll('.activity-card');
+      var buttons = document.querySelectorAll('.act-filter-btn');
+
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active', 'bg-white', 'text-slate-900', 'shadow-2xs');
+        buttons[i].classList.add('text-slate-600');
+      }
+
+      var activeBtn = document.getElementById('btn-filter-' + category);
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-white', 'text-slate-900', 'shadow-2xs');
+        activeBtn.classList.remove('text-slate-600');
+      }
+
+      for (var k = 0; k < cards.length; k++) {
+        if (category === 'all' || cards[k].classList.contains(category)) {
+          cards[k].classList.remove('hidden');
+          cards[k].style.display = 'block';
+        } else {
+          cards[k].classList.add('hidden');
+          cards[k].style.display = 'none';
+        }
+      }
+    };
+
+    // Desplegar o amagar solucions
+    window.toggleSolution = function(id) {
+      var el = document.getElementById(id);
+      var icon = document.getElementById('icon-' + id);
+      if (el) {
+        var isHidden = el.style.display === 'none' || el.classList.contains('hidden');
+        if (isHidden) {
+          el.classList.remove('hidden');
+          el.style.display = 'block';
+          if (icon) icon.classList.add('rotate-180');
+          if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise();
+          }
+        } else {
+          el.classList.add('hidden');
+          el.style.display = 'none';
+          if (icon) icon.classList.remove('rotate-180');
+        }
+      }
+    };
+
+    // Modals
+    window.showUpcomingModal = function(unitTitle) {
+      var titleEl = document.getElementById('upcomingUnitTitle');
+      if (titleEl) titleEl.textContent = unitTitle;
+      var modal = document.getElementById('upcomingModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+      }
+    };
+
+    window.closeUpcomingModal = function() {
+      var modal = document.getElementById('upcomingModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+      }
+    };
+
+    window.openCalculatorModal = function() {
+      var modal = document.getElementById('calculatorModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.style.display = 'flex';
+      }
+    };
+
+    window.closeCalculatorModal = function() {
+      var modal = document.getElementById('calculatorModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+      }
+    };
+
+    window.setCalcMode = function(mode) {
+      var paneM = document.getElementById('calcPaneMolarity');
+      var paneD = document.getElementById('calcPaneDilution');
+      var btnM = document.getElementById('calcModeMolarity');
+      var btnD = document.getElementById('calcModeDilution');
+
+      if (mode === 'molarity') {
+        paneM.classList.remove('hidden'); paneM.style.display = 'block';
+        paneD.classList.add('hidden'); paneD.style.display = 'none';
+        btnM.className = 'px-3 py-1.5 border-b-2 border-sky-600 text-sky-700 font-semibold';
+        btnD.className = 'px-3 py-1.5 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold';
+      } else {
+        paneM.classList.add('hidden'); paneM.style.display = 'none';
+        paneD.classList.remove('hidden'); paneD.style.display = 'block';
+        btnD.className = 'px-3 py-1.5 border-b-2 border-indigo-600 text-indigo-700 font-semibold';
+        btnM.className = 'px-3 py-1.5 border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold';
+      }
+    };
+
+    window.onSelectSoluteChange = function() {
+      var select = document.getElementById('calcSoluteSelect');
+      var customDiv = document.getElementById('calcCustomMmDiv');
+      if (select.value === 'custom') {
+        customDiv.classList.remove('hidden');
+        customDiv.style.display = 'block';
+      } else {
+        customDiv.classList.add('hidden');
+        customDiv.style.display = 'none';
+      }
+    };
+
+    window.calculateMolarity = function() {
+      var select = document.getElementById('calcSoluteSelect');
+      var mm = parseFloat(select.value);
+      if (select.value === 'custom') {
+        mm = parseFloat(document.getElementById('calcCustomMm').value);
+      }
+      var mass = parseFloat(document.getElementById('calcMass').value);
+      var volumeMl = parseFloat(document.getElementById('calcVolume').value);
+
+      var resultDiv = document.getElementById('calcMolarityResult');
+      var valueEl = document.getElementById('molarityValue');
+      var detailsEl = document.getElementById('molarityDetails');
+
+      if (isNaN(mm) || isNaN(mass) || isNaN(volumeMl) || volumeMl <= 0 || mm <= 0 || mass < 0) {
+        alert('Si us plau, introdueix valors vàlids.');
+        return;
+      }
+
+      var volumeL = volumeMl / 1000;
+      var moles = mass / mm;
+      var molarity = moles / volumeL;
+      var concGL = mass / volumeL;
+
+      valueEl.textContent = molarity.toFixed(4) + ' M (mol/L)';
+      detailsEl.textContent = moles.toFixed(4) + ' mol en ' + volumeL + ' L | ' + concGL.toFixed(2) + ' g/L';
+      resultDiv.classList.remove('hidden');
+      resultDiv.style.display = 'block';
+    };
+
+    window.calculateDilution = function() {
+      var c1 = parseFloat(document.getElementById('calcDilC1').value);
+      var v1Input = document.getElementById('calcDilV1').value;
+      var c2 = parseFloat(document.getElementById('calcDilC2').value);
+      var v2Input = document.getElementById('calcDilV2').value;
+
+      var resultDiv = document.getElementById('calcDilutionResult');
+      var valueEl = document.getElementById('dilutionValue');
+      var detailsEl = document.getElementById('dilutionDetails');
+
+      var v1 = v1Input !== '' ? parseFloat(v1Input) : NaN;
+      var v2 = v2Input !== '' ? parseFloat(v2Input) : NaN;
+
+      if (isNaN(v1) && !isNaN(c1) && !isNaN(c2) && !isNaN(v2)) {
+        if (c1 <= 0) return alert('C1 ha de ser major que 0.');
+        var resV1 = (c2 * v2) / c1;
+        valueEl.textContent = 'V₁ = ' + resV1.toFixed(2) + ' mL';
+        detailsEl.textContent = 'Pipetejar ' + resV1.toFixed(2) + ' mL de dissolució concentrada i enrasar a ' + v2 + ' mL.';
+        resultDiv.classList.remove('hidden');
+        resultDiv.style.display = 'block';
+      } else if (isNaN(c2) && !isNaN(c1) && !isNaN(v1) && !isNaN(v2)) {
+        if (v2 <= 0) return alert('V2 ha de ser major que 0.');
+        var resC2 = (c1 * v1) / v2;
+        valueEl.textContent = 'C₂ = ' + resC2.toFixed(4) + ' M';
+        detailsEl.textContent = 'La concentració final és ' + resC2.toFixed(4) + ' M.';
+        resultDiv.classList.remove('hidden');
+        resultDiv.style.display = 'block';
+      } else if (isNaN(v2) && !isNaN(c1) && !isNaN(v1) && !isNaN(c2)) {
+        if (c2 <= 0) return alert('C2 ha de ser major que 0.');
+        var resV2 = (c1 * v1) / c2;
+        valueEl.textContent = 'V₂ = ' + resV2.toFixed(2) + ' mL';
+        detailsEl.textContent = 'El volum final al qual cal diluir és ' + resV2.toFixed(2) + ' mL.';
+        resultDiv.classList.remove('hidden');
+        resultDiv.style.display = 'block';
+      } else {
+        alert('Omple 3 de les 4 caselles per trobar la restant.');
+      }
+    };
+
+    // Assegurar esdeveniments en carregar el DOM
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tancar modals amb tecla Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          window.closeCalculatorModal();
+          window.closeUpcomingModal();
+        }
+      });
+
+      // Tancar modal clicant fora
+      var calcModal = document.getElementById('calculatorModal');
+      if (calcModal) {
+        calcModal.addEventListener('click', function(e) {
+          if (e.target === calcModal) window.closeCalculatorModal();
+        });
+      }
+
+      var upModal = document.getElementById('upcomingModal');
+      if (upModal) {
+        upModal.addEventListener('click', function(e) {
+          if (e.target === upModal) window.closeUpcomingModal();
+        });
+      }
+    });
+  </script>
 </body>
 </html>
